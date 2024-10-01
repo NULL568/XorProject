@@ -241,16 +241,6 @@ function RefreshMurder()
 				ESP.FillColor = Color3.new(255, 0, 0)
 				ESP.FillTransparency = 0.5
 			end
-		else
-			wait(5)
-			if not player.Character:FindFirstChild("ESP_A") then
-				local ESP = Instance.new("Highlight")
-				ESP.Name = "ESP_A"
-				ESP.Parent = player.Character
-				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				ESP.FillColor = Color3.new(255, 255, 255)
-				ESP.FillTransparency = 0.5
-			end
 		end
 		task.wait(0.5)
 		RefreshMurder()
@@ -268,16 +258,6 @@ function RefreshSheriff()
 				ESP.FillColor = Color3.new(0, 255, 0)
 				ESP.FillTransparency = 0.5
 			end
-		else
-			wait(5)
-			if not player.Character:FindFirstChild("ESP_A") then
-				local ESP = Instance.new("Highlight")
-				ESP.Name = "ESP_A"
-				ESP.Parent = player.Character
-				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				ESP.FillColor = Color3.new(255, 255, 255)
-				ESP.FillTransparency = 0.5
-			end
 		end
 		task.wait(0.5)
 		RefreshSheriff()
@@ -285,19 +265,18 @@ function RefreshSheriff()
 end
 
 function mm2()
-	client.CharacterAdded:Connect(function()
-		LoadHelp("[ Xor Script MM2 ] script loaded!")
-		Title_2.Text = "[ Xor Notifier ] MM2"
-		wait(5)
-		Title_2.Text = "Xor Notifier"
-		UnloadHelp("[ Empty ]")
-		RefreshMurder()
-		RefreshSheriff()
-	end)
+	LoadHelp("[ Xor Script MM2 ] script loaded!")
+	Title_2.Text = "[ Xor Notifier ] MM2"
+	wait(5)
+	Title_2.Text = "Xor Notifier"
+	UnloadHelp("[ Empty ]")
+	RefreshMurder()
+	RefreshSheriff()
 end
 
 function ESP_ALL()
 	for _, gp in pairs(plrs:GetPlayers()) do
+		local limit = 1
 		if not gp.Character:FindFirstChild("ESP_GLOBAL") then
 			local ESP = Instance.new("Highlight")
 			ESP.Name = "ESP_GLOBAL"
@@ -306,9 +285,14 @@ function ESP_ALL()
 			ESP.FillColor = Color3.new(255, 255, 255)
 			ESP.FillTransparency = 0.5
 		else
-			local espError = Line:Clone()
-			espError.Text = "[ Xor Info ] ESP is already enabled!"
-			print("[ Xor Info ] ESP is already enabled!")
+			if limit == 0 then
+				local espError = Line:Clone()
+				espError.Parent = Output
+				espError.Text = "[ Xor Info ] ESP is already enabled!"
+				print("[ Xor Info ] ESP is already enabled!")
+				limit -= 1
+			end
+			ESP_ALL()
 		end
 	end
 end
