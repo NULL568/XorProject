@@ -1,8 +1,10 @@
 local UIS = game:GetService("UserInputService")
 local WS = game:GetService("Workspace")
 local RS = game:GetService("ReplicatedStorage")
+local SG = game:GetService("StarterGui")
 local plrs = game:GetService("Players")
 local client = plrs.LocalPlayer
+local PGui = client:WaitForChild("PlayerGui")
 local char = client.Character
 local hum = char.Humanoid
 local hrp = char.HumanoidRootPart
@@ -276,26 +278,41 @@ end
 
 function ESP_ALL()
 	local limit = 1
-	for _, gp in pairs(plrs:GetPlayers()) do
-		if not gp.Character:FindFirstChild("ESP_GLOBAL") then
-			local ESP = Instance.new("Highlight")
-			ESP.Name = "ESP_GLOBAL"
-			ESP.Parent = gp.Character
-			ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-			ESP.FillColor = Color3.new(255, 255, 255)
-			ESP.FillTransparency = 0.5
-		else
-			if limit == 0 then
-				local espError = Line:Clone()
-				espError.Parent = Output
-				espError.Text = "[ Xor Info ] ESP is already enabled!"
-				print("[ Xor Info ] ESP is already enabled!")
-				limit -= 1
+	game.Players.PlayerAdded:Connect(function(playerAdd)
+		for _, gp in pairs(plrs:GetPlayers()) do
+			if not gp.Character:FindFirstChild("ESP_GLOBAL") then
+				local ESP = Instance.new("Highlight")
+				ESP.Name = "ESP_GLOBAL"
+				ESP.Parent = gp.Character
+				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				ESP.FillColor = Color3.new(255, 255, 255)
+				ESP.FillTransparency = 0.5
+			else
+				if limit == 0 then
+					local espError = Line:Clone()
+					espError.Parent = Output
+					espError.Text = "[ Xor Info ] ESP is already enabled!"
+					print("[ Xor Info ] ESP is already enabled!")
+					limit -= 1
+				end
 			end
 		end
-	end
+	end)
 	task.wait(1)
 	ESP_ALL()
+end
+
+function removePrimeXor()
+	PGui:FindFirstChild("PrimeXorUi"):Destroy()
+	for _, player in pairs(plrs:GetPlayers()) do
+		if player.Character:FindFirstChild("ESP_GLOBAL") then
+			player.Character.ESP_GLOBAL:Destroy()
+		elseif player.Character:FindFirstChild("ESP_M") then
+			player.Character.ESP_M:Destroy()
+		elseif player.Character:FindFirstChild("ESP_G") then
+			player.Character.ESP_G:Destroy()
+		end
+	end
 end
 
 UIS.InputBegan:Connect(function(key)
