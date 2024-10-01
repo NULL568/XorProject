@@ -275,6 +275,7 @@ function mm2()
 end
 
 function ESP_ALL()
+	local limit = 1
 	for _, gp in pairs(plrs:GetPlayers()) do
 		if not gp.Character:FindFirstChild("ESP_GLOBAL") then
 			local ESP = Instance.new("Highlight")
@@ -284,14 +285,17 @@ function ESP_ALL()
 			ESP.FillColor = Color3.new(255, 255, 255)
 			ESP.FillTransparency = 0.5
 		else
-			local espError = Line:Clone()
-			espError.Parent = Output
-			espError.Text = "[ Xor Info ] ESP is already enabled!"
-			print("[ Xor Info ] ESP is already enabled!")
-			task.wait(1)
-			ESP_ALL()
+			if limit == 0 then
+				local espError = Line:Clone()
+				espError.Parent = Output
+				espError.Text = "[ Xor Info ] ESP is already enabled!"
+				print("[ Xor Info ] ESP is already enabled!")
+				limit -= 1
+			end
 		end
 	end
+	task.wait(1)
+	ESP_ALL()
 end
 
 UIS.InputBegan:Connect(function(key)
