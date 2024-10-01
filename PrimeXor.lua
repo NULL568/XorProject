@@ -139,7 +139,7 @@ Version.BorderSizePixel = 0
 Version.Position = UDim2.new(0.406727821, 0, 0.0798816532, 0)
 Version.Size = UDim2.new(0.0948012248, 0, 0.0798816532, 0)
 Version.Font = Enum.Font.Ubuntu
-Version.Text = "v1.0"
+Version.Text = "v1.1"
 Version.TextColor3 = Color3.fromRGB(0, 170, 255)
 Version.TextScaled = true
 Version.TextSize = 1.000
@@ -307,7 +307,8 @@ function ESP_ALL()
 			ESP.FillTransparency = 0.5
 		else
 			local espError = Line:Clone()
-			espError.Text = "[ Xor Info ] ESP is already executed!"
+			espError.Text = "[ Xor Info ] ESP is already enabled!"
+			print("[ Xor Info ] ESP is already enabled!")
 		end
 	end
 end
