@@ -273,6 +273,10 @@ function RefreshSheriff()
 			if not player.Character:FindFirstChild("ESP_A") then
 				local ESP = Instance.new("Highlight")
 				ESP.Name = "ESP_A"
+				ESP.Parent = player.Character
+				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				ESP.FillColor = Color3.new(255, 255, 255)
+				ESP.FillTransparency = 0.5
 			end
 		end
 		task.wait(0.5)
@@ -290,6 +294,22 @@ function mm2()
 		RefreshMurder()
 		RefreshSheriff()
 	end)
+end
+
+function ESP_ALL()
+	for _, gp in pairs(plrs:GetPlayers()) do
+		if not gp.Character:FindFirstChild("ESP_GLOBAL") then
+			local ESP = Instance.new("Highlight")
+			ESP.Name = "ESP_GLOBAL"
+			ESP.Parent = gp.Character
+			ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+			ESP.FillColor = Color3.new(255, 255, 255)
+			ESP.FillTransparency = 0.5
+		else
+			local espError = Line:Clone()
+			espError.Text = "[ Xor Info ] ESP is already executed!"
+		end
+	end
 end
 
 UIS.InputBegan:Connect(function(key)
@@ -332,5 +352,7 @@ Execute.MouseButton1Click:Connect(function()
 		end
 	elseif CommandBar.Text == "/mm2" then
 		MM2()
+	elseif CommandBar.Text == "/esp" then
+		ESP_ALL()
 	end
 end)
