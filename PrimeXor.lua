@@ -276,7 +276,6 @@ end
 
 function ESP_ALL()
 	for _, gp in pairs(plrs:GetPlayers()) do
-		local limit = 1
 		if not gp.Character:FindFirstChild("ESP_GLOBAL") then
 			local ESP = Instance.new("Highlight")
 			ESP.Name = "ESP_GLOBAL"
