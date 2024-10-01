@@ -288,6 +288,7 @@ function ESP_ALL()
 			espError.Parent = Output
 			espError.Text = "[ Xor Info ] ESP is already enabled!"
 			print("[ Xor Info ] ESP is already enabled!")
+			task.wait(1)
 			ESP_ALL()
 		end
 	end
