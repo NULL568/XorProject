@@ -230,17 +230,65 @@ function UnloadHelp(desc)
 	Notifier.Visible = false
 end
 
+function RefreshMurder()
+	for _, player in pairs(plrs:GetPlayers()) do
+		if player.Backpack:FindFirstChild("Knife") then
+			if not player.Character:FindFirstChild("ESP_M") then
+				local ESP = Instance.new("Highlight")
+				ESP.Name = "ESP_M"
+				ESP.Parent = player.Character
+				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				ESP.FillColor = Color3.new(255, 0, 0)
+				ESP.FillTransparency = 0.5
+			end
+		else
+			wait(5)
+			if not player.Character:FindFirstChild("ESP_A") then
+				local ESP = Instance.new("Highlight")
+				ESP.Name = "ESP_A"
+				ESP.Parent = player.Character
+				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				ESP.FillColor = Color3.new(255, 255, 255)
+				ESP.FillTransparency = 0.5
+			end
+		end
+		task.wait(0.5)
+		RefreshMurder()
+	end
+end
+
+function RefreshSheriff()
+	for _, player in pairs(plrs:GetPlayers()) do
+		if player.Backpack:FindFirstChild("Gun") then
+			if not player.Character:FindFirstChild("ESP_G") then
+				local ESP = Instance.new("Highlight")
+				ESP.Name = "ESP_G"
+				ESP.Parent = player.Character
+				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				ESP.FillColor = Color3.new(0, 255, 0)
+				ESP.FillTransparency = 0.5
+			end
+		else
+			wait(5)
+			if not player.Character:FindFirstChild("ESP_A") then
+				local ESP = Instance.new("Highlight")
+				ESP.Name = "ESP_A"
+			end
+		end
+		task.wait(0.5)
+		RefreshSheriff()
+	end
+end
+
 function mm2()
 	client.CharacterAdded:Connect(function()
 		LoadHelp("[ Xor Script MM2 ] script loaded!")
-		Title_2.Text = "[ Notifier ] Murder Mystery 2"
+		Title_2.Text = "[ Xor Notifier ] MM2"
 		wait(5)
 		Title_2.Text = "Xor Notifier"
 		UnloadHelp("[ Empty ]")
-		local ESP_M = Instance.new("Highlight")
-		ESP_M.Name = "ESP_M"
-		ESP_M.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-		ESP_M.
+		RefreshMurder()
+		RefreshSheriff()
 	end)
 end
 
