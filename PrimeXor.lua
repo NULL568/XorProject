@@ -352,7 +352,7 @@ Execute.MouseButton1Click:Connect(function()
 			end
 		end
 	elseif CommandBar.Text == "/mm2" then
-		MM2()
+		mm2()
 	elseif CommandBar.Text == "/esp" then
 		ESP_ALL()
 	end
