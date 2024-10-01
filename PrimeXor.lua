@@ -210,16 +210,18 @@ Line.TextWrapped = true
 Line.TextXAlignment = Enum.TextXAlignment.Left
 Line.Visible = false
 
-function LoadHelp()
+function LoadHelp(desc)
 	Notifier.Visible = true
 	Notifier.Transparency = 1
+	Notifier.Description.Text = desc
 	while Notifier.Transparency > 0 do
 		Notifier.Transparency -= 0.1
 		wait(0.5)
 	end
 end
 
-function UnloadHelp()
+function UnloadHelp(desc)
+	Notifier.Description.Text = desc
 	Notifier.Transparency = 0
 	while Notifier.Transparency < 1 do
 		Notifier.Transparency += 0.1
@@ -230,11 +232,15 @@ end
 
 function mm2()
 	client.CharacterAdded:Connect(function()
-		LoadHelp()
-		Description.Text = "Welcome to Xor Project, a free and open-source script made by Xor Owner for Murder Mystery 2."
-		Title_2.Text = "Murder Mystery 2"
+		LoadHelp("[ Xor Script MM2 ] script loaded!")
+		Title_2.Text = "[ Notifier ] Murder Mystery 2"
 		wait(5)
-		UnloadHelp()
+		Title_2.Text = "Xor Notifier"
+		UnloadHelp("[ Empty ]")
+		local ESP_M = Instance.new("Highlight")
+		ESP_M.Name = "ESP_M"
+		ESP_M.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+		ESP_M.
 	end)
 end
 
@@ -277,8 +283,6 @@ Execute.MouseButton1Click:Connect(function()
 			end
 		end
 	elseif CommandBar.Text == "/mm2" then
-		LoadHelp()
-		wait(5)
-		UnloadHelp()
+		MM2()
 	end
 end)
