@@ -288,7 +288,7 @@ end
 
 function mm2()
 	LoadNotifier("[ Xor Script MM2 ] script loaded!", "MM2")
-	wait(5)
+	task.wait(5)
 	UnloadNotifier()
 	RefreshMurder()
 	RefreshSheriff()
