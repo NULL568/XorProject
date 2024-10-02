@@ -317,6 +317,8 @@ function updatePrimeXor()
 	UpdateXor.Visible = true
 	local UpdateXor2 = Line:Clone()
 	UpdateXor2.Text = "[ Xor Update ] Prime Xor will start in a few seconds!"
+	UpdateXor2.Parent = Output
+	UpdateXor2.Visible = true
 	PGui:FindFirstChild("PrimeXorUi"):Destroy()
 	for _, player in pairs(plrs:GetPlayers()) do
 		if player.Character:FindFirstChild("ESP_GLOBAL") then
