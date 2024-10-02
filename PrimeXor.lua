@@ -392,7 +392,7 @@ end
 
 function XE(ins, nameOfIns, paramOrPropertyOrWay, valOfInsOrValOfInsVectorArg1, valOfInsVectorArg2, valOfInsVectorArg3)
 	LoadNotifier("[ Xor Script XE ] script loaded!", "XE v2.1")
-	wait(5)
+	task.wait(5)
 	UnloadNotifier()
 	local lineForRE = Line:Clone()
 	local line1 = Line:Clone()
@@ -419,6 +419,7 @@ function XE_ShowOptions()
 end
 
 function discord()
+	LoadNotifier("[ Xor Script ] see the output of PrimeXor!", "Discord")
 	local line1 = Line:Clone()
 	line1.Text = "Link : https://discord.gg/qRBZm9qGsf"
 	line1.Parent = Output
