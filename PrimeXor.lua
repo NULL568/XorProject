@@ -308,7 +308,7 @@ function ESP_ALL()
 end
 
 function updatePrimeXor()
-	LoadNotifier("[ Xor System Update ] don't re-execute script on your executor, he will be executed automatically!")
+	LoadNotifier("[ Xor System Update ] don't re-execute script on your executor, he will be executed automatically!", "Update")
 	wait(5)
 	UnloadNotifier()
 	local UpdateXor = Line:Clone()
