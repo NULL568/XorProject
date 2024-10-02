@@ -457,6 +457,8 @@ function XE(ins, nameOfIns, paramOrPropertyOrWay, valOfInsOrValOfInsVectorArg1, 
 					end
 				end
 			end
+		elseif ins == "LocalScript" then
+			print(obj.Name.." ("..obj.ClassName..")")
 		end
 	end
 end
