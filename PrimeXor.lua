@@ -493,7 +493,7 @@ Execute.MouseButton1Click:Connect(function()
 		mm2()
 	elseif CommandBar.Text == "/esp" then
 		ESP_ALL()
-	elseif CommandBar.Text == "/update"
+	elseif CommandBar.Text == "/update" then
 		updatePrimeXor()
 	elseif CommandBar.Text == "/XE --show-options" then
 		XE_ShowOptions()
