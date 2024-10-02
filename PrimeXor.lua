@@ -288,7 +288,7 @@ function ESP_ALL()
 				ESP.FillColor = Color3.new(255, 255, 255)
 				ESP.FillTransparency = 0.5
 			else
-				if limit == 0 then
+				if limit <= 0 then
 					local espError = Line:Clone()
 					espError.Parent = Output
 					espError.Text = "[ Xor Info ] ESP is already enabled!"
