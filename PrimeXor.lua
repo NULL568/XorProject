@@ -407,7 +407,7 @@ function XE(ins, nameOfIns, paramOrPropertyOrWay, valOfInsOrValOfInsVectorArg1, 
 		if ins == "RemoteEvent" then
 			print(obj.Name.." ("..obj.ClassName..")")
 			if nameOfIns == obj.Name then
-				obj:FireServer(paramOrProperty)
+				obj:FireServer(paramOrPropertyOrWay)
 			end
 		elseif ins == "Part" then
 			print(obj.Name.." ("..obj.ClassName..")")
