@@ -299,30 +299,29 @@ end
 
 function ESP_ALL()
 	local limit = 1
-	game.Players.PlayerAdded:Connect(function(playerAdd)
-		for _, gp in pairs(plrs:GetPlayers()) do
-			if not gp.Character:FindFirstChild("ESP_GLOBAL") then
-				local ESP = Instance.new("Highlight")
-				ESP.Name = "ESP_GLOBAL"
-				ESP.Parent = gp.Character
-				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				ESP.FillColor = Color3.new(255, 255, 255)
-				ESP.FillTransparency = 0.5
-			else
-				if limit <= 0 then
-					LoadNotifier("[ Xor Script ESP ] script loaded!", "ESP")
-					wait(5)
-					UnloadNotifier("[ Empty ]", "Xor Notifier")
-					local espError = Line:Clone()
-					espError.Parent = Output
-					espError.Text = "[ Xor Info ] ESP is already enabled!"
-					print("[ Xor Info ] ESP is already enabled!")
-					limit -= 1
-				end
+	for _, gp in pairs(plrs:GetPlayers()) do
+		if not gp.Character:FindFirstChild("ESP_GLOBAL") then
+			local ESP = Instance.new("Highlight")
+			ESP.Name = "ESP_GLOBAL"
+			ESP.Parent = gp.Character
+			ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+			ESP.FillColor = Color3.new(255, 255, 255)
+			ESP.FillTransparency = 0.5
+		else
+			if limit <= 0 then
+				LoadNotifier("[ Xor Script ESP ] script loaded!", "ESP")
+				wait(5)
+				UnloadNotifier("[ Empty ]", "Xor Notifier")
+				local espError = Line:Clone()
+				espError.Text = "[ Xor Info ] ESP is already enabled!"
+				espError.Parent = Output
+				espError.Visible = true
+				print("[ Xor Info ] ESP is already enabled!")
+				limit -= 1
 			end
 		end
-	end)
-	task.wait(1)
+	end
+	task.wait(3)
 	ESP_ALL()
 end
 
