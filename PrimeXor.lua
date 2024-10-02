@@ -212,6 +212,8 @@ Line.TextWrapped = true
 Line.TextXAlignment = Enum.TextXAlignment.Left
 Line.Visible = false
 
+local splitCmd = string.split(CommandBar.Text, " ")
+
 function LoadNotifier(desc, nameNotifier)
 	Notifier.Visible = true
 	Notifier.Transparency = 1
@@ -223,9 +225,9 @@ function LoadNotifier(desc, nameNotifier)
 	end
 end
 
-function UnloadNotifier(desc, nameNotifier)
-	Notifier.Description.Text = desc
-	Title_2.Text = nameNotifier
+function UnloadNotifier()
+	Notifier.Description.Text = "[ Empty ]"
+	Title_2.Text = "Xor Notifier"
 	Notifier.Transparency = 0
 	while Notifier.Transparency < 1 do
 		Notifier.Transparency += 0.1
@@ -271,7 +273,7 @@ end
 function mm2()
 	LoadNotifier("[ Xor Script MM2 ] script loaded!", "MM2")
 	wait(5)
-	UnloadNotifier("[ Empty ]", "Xor Notifier")
+	UnloadNotifier()
 	RefreshMurder()
 	RefreshSheriff()
 end
@@ -308,6 +310,7 @@ end
 function updatePrimeXor()
 	LoadNotifier("[ Xor System Update ] don't re-execute script on your executor, he will be executed automatically!")
 	wait(5)
+	UnloadNotifier()
 	local UpdateXor = Line:Clone()
 	UpdateXor.Text = "[ Xor Update ] please wait (don't re-execute)"
 	UpdateXor.Parent = Output
@@ -326,12 +329,143 @@ function updatePrimeXor()
 	end
 	task.wait(3)
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NULL568/XorProject/refs/heads/main/PrimeXor.lua"))();
+	task.wait(3)
 	local UpdateXor3 = Line:Clone()
 	UpdateXor3.Text = "[ Xor Update ] Prime Xor is ready!"
 	UpdateXor3.Parent = Output
 	UpdateXor3.Visible = true
 	local UpdateXor4 = Line:Clone()
 	UpdateXor4.Text = "[ Xor Update ] You can use /help command to see new possibles changes!"
+end
+
+function Help()
+	local line1 = Line:Clone()
+	local line2 = Line:Clone()
+	local line3 = Line:Clone()
+	local line4 = Line:Clone()
+	local line5 = Line:Clone()
+	local line6 = Line:Clone()
+	local line7 = Line:Clone()
+	local line8 = Line:Clone()
+	local line9 = Line:Clone()
+	local line10 = Line:Clone()
+
+	line1.Text = "--- [ Xor Commands ] ---"
+	line1.Parent = Output
+	line1.Visible = true
+	
+	line2.Parent = Output
+	line2.Text = "-- /help : show commands list"
+	line2.Visible = true
+	
+	line3.Text = "-- /clear : clean output"
+	line3.Parent = Output
+	line3.Visible = true
+	
+	line4.Text = "-- /mm2 : run Xor Script for MM2 (Murder Mystery 2)"
+	line4.Parent = Output
+	line4.Visible = true
+	
+	line5.Text = "-- /sb : run Xor Script for Slap Battles"
+	line5.Parent = Output
+	line5.Visible = true
+	
+	line6.Text = "-- /esp : see all players in game"
+	line6.Parent = Output
+	line6.Visible = true
+
+	line7.Text = "-- /update : update repository of PrimeXor"
+	line7.Parent = Output
+	line7.Visible = true
+
+	line8.Text = "-- /XE : run Xor Explorer"
+	line8.Parent = Output
+	line8.Visible = true
+
+	line9.Text = "-- /XE --show-options : show options for Xor Explorer"
+	line9.Parent = Output
+	line9.Visible = true
+end
+
+function XE(ins, nameOfIns, paramOrPropertyOrWay, valOfInsOrValOfInsVectorArg1, valOfInsVectorArg2, valOfInsVectorArg3)
+	LoadNotifier("[ Xor Script XE ] script loaded!", "XE v2.1")
+	wait(5)
+	UnloadNotifier()
+	local lineForRE = Line:Clone()
+	local line1 = Line:Clone()
+	local line2 = Line:Clone()
+	local line3 = Line:Clone()
+	local line4 = Line:Clone()
+	local line5 = Line:Clone()
+	local line6 = Line:Clone()
+	local line7 = Line:Clone()
+	local line8 = Line:Clone()
+	local line9 = Line:Clone()
+	local line10 = Line:Clone()
+
+	for _, obj in pairs(game:GetDescendants()) do
+		if ins == "RemoteEvent" then
+			print(obj.Name.." ("..obj.ClassName..")")
+			if nameOfIns == obj.Name then
+				obj:FireServer(paramOrProperty)
+			end
+		elseif ins == "Part" then
+			print(obj.Name.." ("..obj.ClassName..")")
+			if obj.Name == nameOfIns then
+				if paramOrPropertyOrWay == "Anchored" then
+					obj.Anchored = valOfInsOrValOfInsVectorArg1
+					line1.Text = "[ Xor Explorer ] value assigned to "..nameOfIns
+					line1.Parent = Output
+					line1.Visible = true
+				elseif paramOrPropertyOrWay == "Transparency" then
+					obj.Transparency = valOfInsOrValOfInsVectorArg1
+					line2.Text = "[ Xor Explorer ] value assigned to "..nameOfIns
+					line2.Parent = Output
+					line2.Visible = true
+				elseif paramOrPropertyOrWay == "Size" then
+					obj.Size = Vector3.new(valOfInsOrValOfInsVectorArg1, valOfInsVectorArg2, valOfInsVectorArg3)
+					line3.Text = "[ Xor Explorer ] value assigned to "..nameOfIns
+					line3.Parent = Output
+					line3.Visible = true
+				elseif paramOrPropertyOrWay == "Position" then
+					obj.Position = Vector3.new(valOfInsOrValOfInsVectorArg1, valOfInsVectorArg2, valOfInsVectorArg3)
+					line4.Text = "[ Xor Explorer ] value assigned to "..nameOfIns
+					line4.Parent = Output
+					line4.Visible = true
+				elseif paramOrPropertyOrWay == "CFrame" then
+					obj.CFrame = CFrame.new(valOfInsOrValOfInsVectorArg1, valOfInsVectorArg2, valOfInsVectorArg3)
+					line5.Text = "[ Xor Explorer ] value assigned to "..nameOfIns
+					line5.Parent = Output
+					line5.Visible = true
+				elseif paramOrPropertyOrWay == "CanCollide" then
+					obj.CanCollide = valOfInsOrValOfInsVectorArg1
+					line6.Text = "[ Xor Explorer ] value assigned to "..nameOfIns
+					line6.Parent = Output
+					line6.Visible = true
+				elseif paramOrProperty == "CanTouch" then
+					obj.CanTouch = valOfInsOrValOfInsVectorArg1
+					line7.Text = "[ Xor Explorer ] value assigned to "..nameOfIns
+					line7.Parent = Output
+					line7.Visible = true
+				elseif paramOrProperty == "GET_DESCENDANTS" then
+					for _, itm in pairs(obj:GetDescendants()) do
+						print(itm.Name.." ("..itm.ClassName..")")
+					end
+				elseif paramOrProperty == "GET_CHILDREN" then
+					for _, itm in pairs(obj:GetDescendants()) do
+						print(itm.Name.." ("..itm.ClassName..")")
+					end
+				end
+			end
+		end
+	end
+end
+
+function XE_ShowOptions()
+	local line1 = Line:Clone()
+	line1.Text = "[ Xor Explorer ] /XE nameOfIns propertyOrParam valOfIns (ex : /XE Part KillBrickLvl1Obby CanCollide false ex2 : /XE RemoteEvent AdminPanelEvent game.Players.TestAdmin)"
+	line1.Parent = Output
+	line1.Visible = true
 end
 
 UIS.InputBegan:Connect(function(key)
@@ -346,41 +480,7 @@ end)
 
 Execute.MouseButton1Click:Connect(function()
 	if CommandBar.Text == "/help" then
-		local line1 = Line:Clone()
-		local line2 = Line:Clone()
-		local line3 = Line:Clone()
-		local line4 = Line:Clone()
-		local line5 = Line:Clone()
-		local line6 = Line:Clone()
-		local line7 = Line:Clone()
-
-		line1.Text = "--- [ Xor Commands ] ---"
-		line1.Parent = Output
-		line1.Visible = true
-		
-		line2.Parent = Output
-		line2.Text = "-- /help : show commands list"
-		line2.Visible = true
-		
-		line3.Text = "-- /clear : clean output"
-		line3.Parent = Output
-		line3.Visible = true
-		
-		line4.Text = "-- /mm2 : run Xor Script for MM2 (Murder Mystery 2)"
-		line4.Parent = Output
-		line4.Visible = true
-		
-		line5.Text = "-- /sb : run Xor Script for Slap Battles"
-		line5.Parent = Output
-		line5.Visible = true
-		
-		line6.Text = "-- /esp : see all players in game"
-		line6.Parent = Output
-		line6.Visible = true
-
-		line7.Text = "-- /update : update repository of PrimeXor"
-		line7.Parent = Output
-		line7.Visible = true
+		Help()
 	elseif CommandBar.Text == "/clear" then
 		for _, line in pairs(Output:GetChildren()) do
 			if line:IsA("TextLabel") then
@@ -393,5 +493,17 @@ Execute.MouseButton1Click:Connect(function()
 		ESP_ALL()
 	elseif CommandBar.Text == "/update"
 		updatePrimeXor()
+	elseif CommandBar.Text == "/XE --show-options" then
+		XE_ShowOptions()
+	end
+	if splitCmd[1] == "/XE" then
+		local XorExplorer = Line:Clone()
+		XorExplorer.Text = "[ Xor Explorer ] open Console Client for see"
+		XorExplorer.Parent = Output
+		XorExplorer.Visible = true
+		LoadNotifier("[ Xor Script XE ] script loaded!", "XE (Xor Explorer)")
+		XE(splitCmd[2], splitCmd[3], splitCmd[4], splitCmd[5], splitCmd[6], splitCmd[7])
+		wait(5)
+		UnloadNotifier("[ Empty ]", "Xor Notifier")
 	end
 end)
