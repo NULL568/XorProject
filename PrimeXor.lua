@@ -141,7 +141,7 @@ Version.BorderSizePixel = 0
 Version.Position = UDim2.new(0.406727821, 0, 0.0798816532, 0)
 Version.Size = UDim2.new(0.0948012248, 0, 0.0798816532, 0)
 Version.Font = Enum.Font.Ubuntu
-Version.Text = "v1.1"
+Version.Text = "v1.2"
 Version.TextColor3 = Color3.fromRGB(0, 170, 255)
 Version.TextScaled = true
 Version.TextSize = 1.000
@@ -302,7 +302,7 @@ function ESP_ALL()
 	ESP_ALL()
 end
 
-function removePrimeXor()
+function updatePrimeXor()
 	PGui:FindFirstChild("PrimeXorUi"):Destroy()
 	for _, player in pairs(plrs:GetPlayers()) do
 		if player.Character:FindFirstChild("ESP_GLOBAL") then
@@ -328,25 +328,40 @@ end)
 Execute.MouseButton1Click:Connect(function()
 	if CommandBar.Text == "/help" then
 		local line1 = Line:Clone()
+		local line2 = Line:Clone()
+		local line3 = Line:Clone()
+		local line4 = Line:Clone()
+		local line5 = Line:Clone()
+		local line6 = Line:Clone()
+		local line7 = Line:Clone()
+
 		line1.Text = "--- [ Xor Commands ] ---"
 		line1.Parent = Output
 		line1.Visible = true
-		local line2 = Line:Clone()
+		
 		line2.Parent = Output
 		line2.Text = "-- /help : show commands list"
 		line2.Visible = true
-		local line3 = Line:Clone()
+		
 		line3.Text = "-- /clear : clean output"
 		line3.Parent = Output
 		line3.Visible = true
-		local line4 = Line:Clone()
+		
 		line4.Text = "-- /mm2 : run Xor Script for MM2 (Murder Mystery 2)"
 		line4.Parent = Output
 		line4.Visible = true
-		local line5 = Line:Clone()
+		
 		line5.Text = "-- /sb : run Xor Script for Slap Battles"
 		line5.Parent = Output
 		line5.Visible = true
+		
+		line6.Text = "-- /esp : see all players in game"
+		line6.Parent = Output
+		line6.Visible = true
+
+		line7.Text = "-- /update : update repository of PrimeXor"
+		line7.Parent = Output
+		line7.Visible = true
 	elseif CommandBar.Text == "/clear" then
 		for _, line in pairs(Output:GetChildren()) do
 			if line:IsA("TextLabel") then
@@ -357,5 +372,7 @@ Execute.MouseButton1Click:Connect(function()
 		mm2()
 	elseif CommandBar.Text == "/esp" then
 		ESP_ALL()
+	elseif CommandBar.Text == "/update"
+		updatePrimeXor()
 	end
 end)
