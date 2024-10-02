@@ -296,6 +296,9 @@ end
 
 function ESP_ALL()
 	local limit = 1
+	LoadNotifier("[ Xor Script ESP ] script loaded!")
+	task.wait(5)
+	UnloadNotifier()
 	for _, gp in pairs(plrs:GetPlayers()) do
 		local ESP = Instance.new("Highlight")
 		ESP.Name = "ESP_GLOBAL"
@@ -321,7 +324,7 @@ end
 
 function updatePrimeXor()
 	LoadNotifier("[ Xor System Update ] don't re-execute script on your executor, he will be executed automatically!", "Update")
-	wait(5)
+	task.wait(5)
 	UnloadNotifier()
 	local UpdateXor = Line:Clone()
 	UpdateXor.Text = "[ Xor Update ] please wait (don't re-execute)"
