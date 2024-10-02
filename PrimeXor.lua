@@ -34,6 +34,13 @@ local HelpCommands = Instance.new("Frame")
 local UICorner_7 = Instance.new("UICorner")
 local Title_3 = Instance.new("TextLabel")
 local Description_2 = Instance.new("TextBox")
+local UIStroke = Instance.new("UIStroke")
+local UIStroke_2 = Instance.new("UIStroke")
+
+UIStroke.Thickness = 3
+UIStroke.Parent = Main
+UIStroke_2.Thickness = 3
+UIStroke_2.Parent = Notifier
 
 PrimeXorUi.Name = "PrimeXorUi"
 PrimeXorUi.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -221,7 +228,7 @@ function LoadNotifier(desc, nameNotifier)
 	Title_2.Text = "[ Xor Notifier ] "..nameNotifier
 	while Notifier.Transparency > 0 do
 		Notifier.Transparency -= 0.1
-		wait(0.5)
+		wait(0.1)
 	end
 end
 
@@ -231,7 +238,7 @@ function UnloadNotifier()
 	Notifier.Transparency = 0
 	while Notifier.Transparency < 1 do
 		Notifier.Transparency += 0.1
-		wait(0.5)
+		wait(0.1)
 	end
 	Notifier.Visible = false
 end
