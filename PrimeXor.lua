@@ -313,6 +313,8 @@ function updatePrimeXor()
 			player.Character.ESP_G:Destroy()
 		end
 	end
+	task.wait(3)
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/NULL568/XorProject/refs/heads/main/PrimeXor.lua"))();
 end
 
 UIS.InputBegan:Connect(function(key)
