@@ -221,6 +221,18 @@ Line.Visible = false
 
 local splitCmd = string.split(CommandBar.Text, " ")
 
+function loadPrimeXor()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/NULL568/XorProject/refs/heads/main/PrimeXor.lua"))();
+	local UpdateXor = Line:Clone()
+	UpdateXor.Text = "[ Xor Update ] Prime Xor is ready!"
+	UpdateXor.Parent = Output
+	UpdateXor.Visible = true
+	local UpdateXor2 = Line:Clone()
+	UpdateXor2.Text = "[ Xor Update ] You can use /help command to see new possibles changes!"
+	UpdateXor2.Parent = Output
+	UpdateXor2.Visible = true
+end
+
 function LoadNotifier(desc, nameNotifier)
 	Notifier.Visible = true
 	Notifier.Transparency = 1
@@ -327,24 +339,8 @@ function updatePrimeXor()
 	UpdateXor2.Parent = Output
 	UpdateXor2.Visible = true
 	PGui:FindFirstChild("PrimeXorUi"):Destroy()
-	for _, player in pairs(plrs:GetPlayers()) do
-		if player.Character:FindFirstChild("ESP_GLOBAL") then
-			player.Character.ESP_GLOBAL:Destroy()
-		elseif player.Character:FindFirstChild("ESP_M") then
-			player.Character.ESP_M:Destroy()
-		elseif player.Character:FindFirstChild("ESP_G") then
-			player.Character.ESP_G:Destroy()
-		end
-	end
 	task.wait(3)
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/NULL568/XorProject/refs/heads/main/PrimeXor.lua"))();
-	task.wait(3)
-	local UpdateXor3 = Line:Clone()
-	UpdateXor3.Text = "[ Xor Update ] Prime Xor is ready!"
-	UpdateXor3.Parent = Output
-	UpdateXor3.Visible = true
-	local UpdateXor4 = Line:Clone()
-	UpdateXor4.Text = "[ Xor Update ] You can use /help command to see new possibles changes!"
+	loadPrimeXor()
 end
 
 function Help()
