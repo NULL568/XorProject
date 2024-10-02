@@ -212,18 +212,20 @@ Line.TextWrapped = true
 Line.TextXAlignment = Enum.TextXAlignment.Left
 Line.Visible = false
 
-function LoadHelp(desc)
+function LoadNotifier(desc, nameNotifier)
 	Notifier.Visible = true
 	Notifier.Transparency = 1
 	Notifier.Description.Text = desc
+	Title_2.Text = "[ Xor Notifier ] "..nameNotifier
 	while Notifier.Transparency > 0 do
 		Notifier.Transparency -= 0.1
 		wait(0.5)
 	end
 end
 
-function UnloadHelp(desc)
+function UnloadNotifier(desc, nameNotifier)
 	Notifier.Description.Text = desc
+	Title_2.Text = nameNotifier
 	Notifier.Transparency = 0
 	while Notifier.Transparency < 1 do
 		Notifier.Transparency += 0.1
@@ -267,11 +269,9 @@ function RefreshSheriff()
 end
 
 function mm2()
-	LoadHelp("[ Xor Script MM2 ] script loaded!")
-	Title_2.Text = "[ Xor Notifier ] MM2"
+	LoadNotifier("[ Xor Script MM2 ] script loaded!", "MM2")
 	wait(5)
-	Title_2.Text = "Xor Notifier"
-	UnloadHelp("[ Empty ]")
+	UnloadNotifier("[ Empty ]", "Xor Notifier")
 	RefreshMurder()
 	RefreshSheriff()
 end
@@ -289,6 +289,9 @@ function ESP_ALL()
 				ESP.FillTransparency = 0.5
 			else
 				if limit <= 0 then
+					LoadNotifier("[ Xor Script ESP ] script loaded!", "ESP")
+					wait(5)
+					UnloadNotifier("[ Empty ]", "Xor Notifier")
 					local espError = Line:Clone()
 					espError.Parent = Output
 					espError.Text = "[ Xor Info ] ESP is already enabled!"
@@ -303,6 +306,14 @@ function ESP_ALL()
 end
 
 function updatePrimeXor()
+	LoadNotifier("[ Xor System Update ] don't re-execute script on your executor, he will be executed automatically!")
+	wait(5)
+	local UpdateXor = Line:Clone()
+	UpdateXor.Text = "[ Xor Update ] please wait (don't re-execute)"
+	UpdateXor.Parent = Output
+	UpdateXor.Visible = true
+	local UpdateXor2 = Line:Clone()
+	UpdateXor2.Text = "[ Xor Update ] Prime Xor will start in a few seconds!"
 	PGui:FindFirstChild("PrimeXorUi"):Destroy()
 	for _, player in pairs(plrs:GetPlayers()) do
 		if player.Character:FindFirstChild("ESP_GLOBAL") then
@@ -315,6 +326,12 @@ function updatePrimeXor()
 	end
 	task.wait(3)
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/NULL568/XorProject/refs/heads/main/PrimeXor.lua"))();
+	local UpdateXor3 = Line:Clone()
+	UpdateXor3.Text = "[ Xor Update ] Prime Xor is ready!"
+	UpdateXor3.Parent = Output
+	UpdateXor3.Visible = true
+	local UpdateXor4 = Line:Clone()
+	UpdateXor4.Text = "[ Xor Update ] You can use /help command to see new possibles changes!"
 end
 
 UIS.InputBegan:Connect(function(key)
