@@ -440,7 +440,14 @@ function TP(plrTarget)
 	hrp.CFrame = plrs:FindFirstChild(plrTarget).Character.HumanoidRootPart.CFrame
 	if plrs:FindFirstChild(plrTarget) then
 		local line1 = Line:Clone()
-		line1
+		line1.Text = "[ Xor TP ] teleported to "..plrTarget
+		line1.Parent = Output
+		line1.Visible = true
+	else
+		local line2 = Line:Clone()
+		line2.Text = "[ Xor TP ] player not found!"
+		line2.Parent = Output
+		line2.Visible = true
 	end
 end
 
