@@ -241,7 +241,7 @@ function LoadNotifier(desc, nameNotifier)
 	Title_2.Text = "[ Xor Notifier ] "..nameNotifier
 	while Notifier.Transparency > 0 do
 		Notifier.Transparency -= 0.1
-		wait(0.1)
+		wait(0.05)
 	end
 end
 
@@ -251,7 +251,7 @@ function UnloadNotifier()
 	Notifier.Transparency = 0
 	while Notifier.Transparency < 1 do
 		Notifier.Transparency += 0.1
-		wait(0.1)
+		wait(0.05)
 	end
 	Notifier.Visible = false
 end
