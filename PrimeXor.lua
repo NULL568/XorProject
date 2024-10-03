@@ -460,6 +460,16 @@ function TP(plrTarget)
 	end
 end
 
+function about()
+	LoadNotifier("[ About Xor ] Prime Xor is a powerfull terminal made by Xor Ownder", "About of Prime Xor")
+	task.wait(5)
+	UnloadNotifier()
+	local line1 = Line:Clone()
+	line1.Text = "[ About Xor ] Prime Xor is updated from GitHub by Xor Owner"
+	line1.Parent = Output
+	line1.Visible = true
+end
+
 Execute.MouseButton1Click:Connect(function()
 	if CommandBar.Text == "/help" then
 		Help()
@@ -481,5 +491,7 @@ Execute.MouseButton1Click:Connect(function()
 		discord()
 	elseif splitCmd[1] == "/tp" then
 		TP(splitCmd[2])
+	elseif CommandBar.Text == "/about" then
+		about()
 	end
 end)
