@@ -436,6 +436,14 @@ UIS.InputBegan:Connect(function(key)
 	end
 end)
 
+function TP(plrTarget)
+	hrp.CFrame = plrs:FindFirstChild(plrTarget).Character.HumanoidRootPart.CFrame
+	if plrs:FindFirstChild(plrTarget) then
+		local line1 = Line:Clone()
+		line1
+	end
+end
+
 Execute.MouseButton1Click:Connect(function()
 	if CommandBar.Text == "/help" then
 		Help()
@@ -455,5 +463,7 @@ Execute.MouseButton1Click:Connect(function()
 		XE_ShowOptions()
 	elseif CommandBar.Text == "/discord" then
 		discord()
+	elseif splitCmd[1] == "/tp" then
+		TP(splitCmd[2])
 	end
 end)
