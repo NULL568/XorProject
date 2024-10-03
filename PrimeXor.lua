@@ -137,6 +137,7 @@ Output.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Output.BorderSizePixel = 0
 Output.Size = UDim2.new(1, 0, 1, 0)
 Output.ScrollBarThickness = 10
+Output.Selectable = true
 
 UIListLayout.Parent = Output
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
