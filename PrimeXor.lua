@@ -37,6 +37,8 @@ local Description_2 = Instance.new("TextBox")
 local UIStroke = Instance.new("UIStroke")
 local UIStroke_2 = Instance.new("UIStroke")
 
+local versionOfPrimeXor = "v1.4"
+
 UIStroke.Thickness = 3
 UIStroke.Parent = Main
 UIStroke_2.Thickness = 3
@@ -148,7 +150,7 @@ Version.BorderSizePixel = 0
 Version.Position = UDim2.new(0.406727821, 0, 0.0798816532, 0)
 Version.Size = UDim2.new(0.0948012248, 0, 0.0798816532, 0)
 Version.Font = Enum.Font.Ubuntu
-Version.Text = "v1.3"
+Version.Text = versionOfPrimeXor
 Version.TextColor3 = Color3.fromRGB(0, 170, 255)
 Version.TextScaled = true
 Version.TextSize = 1.000
@@ -350,6 +352,7 @@ function Help()
 	local line8 = Line:Clone()
 	local line9 = Line:Clone()
 	local line10 = Line:Clone()
+	local line11 = Line:Clone()
 
 	line1.Text = "--- [ Xor Commands ] ---"
 	line1.Parent = Output
@@ -388,6 +391,12 @@ function Help()
 	line9.Visible = true
 
 	line10.Text = "-- /discord : get link of our Server Discord (you can copy from the Output of PrimeXor)"
+	line10.Parent = Output
+	line10.Visible = true
+
+	line11.text = "-- /tp [nameOfPlayer] : teleport to a player"
+	line11.Parent = Output
+	line11.Visible = true
 end
 
 function XE(ins, nameOfIns, paramOrPropertyOrWay, valOfInsOrValOfInsVectorArg1, valOfInsVectorArg2, valOfInsVectorArg3)
@@ -437,8 +446,8 @@ UIS.InputBegan:Connect(function(key)
 end)
 
 function TP(plrTarget)
-	hrp.CFrame = plrs:FindFirstChild(plrTarget).Character.HumanoidRootPart.CFrame
 	if plrs:FindFirstChild(plrTarget) then
+		hrp.CFrame = plrs:FindFirstChild(plrTarget).Character.HumanoidRootPart.CFrame
 		local line1 = Line:Clone()
 		line1.Text = "[ Xor TP ] teleported to "..plrTarget
 		line1.Parent = Output
