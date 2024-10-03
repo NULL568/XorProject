@@ -138,6 +138,7 @@ Output.BorderSizePixel = 0
 Output.Size = UDim2.new(1, 0, 1, 0)
 Output.ScrollBarThickness = 10
 Output.Selectable = true
+Output.Interactable = true
 
 UIListLayout.Parent = Output
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
