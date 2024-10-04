@@ -261,32 +261,35 @@ function UnloadNotifier()
 end
 
 function RefreshMurder()
-	for _, player in pairs(plrs:GetPlayers()) do
-		if player.Backpack:FindFirstChild("Knife") then
-			local ESP = Instance.new("Highlight")
-			ESP.Name = "ESP_M"
-			ESP.Parent = player.Character
-			ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-			ESP.FillColor = Color3.new(255, 0, 0)
-			ESP.FillTransparency = 0.5
+	while wait(1) do
+		for _, player in pairs(plrs:GetPlayers()) do
+			if player.Backpack:FindFirstChild("Knife") then
+				local ESP = Instance.new("Highlight")
+				ESP.Name = "ESP_M"
+				ESP.Parent = player.Character
+				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				ESP.FillColor = Color3.new(255, 0, 0)
+				ESP.FillTransparency = 0.5
+			end
+			task.wait(0.5)
 		end
-		task.wait(0.5)
-		RefreshMurder()
 	end
 end
 
 function RefreshSheriff()
-	for _, player in pairs(plrs:GetPlayers()) do
-		if player.Backpack:FindFirstChild("Gun") then
-			local ESP = Instance.new("Highlight")
-			ESP.Name = "ESP_G"
-			ESP.Parent = player.Character
-			ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-			ESP.FillColor = Color3.new(0, 255, 0)
-			ESP.FillTransparency = 0.5
+	while wait(1) do
+		for _, player in pairs(plrs:GetPlayers()) do
+			if player.Backpack:FindFirstChild("Gun") then
+				local ESP = Instance.new("Highlight")
+				ESP.Name = "ESP_G"
+				ESP.Parent = player.Character
+				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				ESP.FillColor = Color3.new(0, 255, 0)
+				ESP.FillTransparency = 0.5
+			end
+			task.wait(0.5)
+			RefreshSheriff()
 		end
-		task.wait(0.5)
-		RefreshSheriff()
 	end
 end
 
