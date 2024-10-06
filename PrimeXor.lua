@@ -324,6 +324,8 @@ function Help()
 	line6.Parent = Output
 	line6.Visible = true
 
+	line7.Text = "-- /tp : After executed, type name of player in the Chat and press Enter for teleport"
+
 	line8.Text = "-- /XE : run Xor Explorer"
 	line8.Parent = Output
 	line8.Visible = true
@@ -408,6 +410,14 @@ function about()
 	line1.Visible = true
 end
 
+function TP_Plr()
+	client.Chatted:Connect(function(msg)
+		if game.Players:FindFirstChild(msg) then
+			hrp.CFrame = game.Players:FindFirstChild(msg)
+		end
+	end)
+end
+
 Execute.MouseButton1Click:Connect(function()
 	if CommandBar.Text == "/help" then
 		Help()
@@ -425,6 +435,8 @@ Execute.MouseButton1Click:Connect(function()
 		XE_Explorer()
 	elseif CommandBar.Text == "/XE --show-options" then
 		XE_ShowOptions()
+	elseif CommandBar.Text = "/tp" then
+		TP_Plr()
 	elseif CommandBar.Text == "/discord" then
 		discord()
 	elseif CommandBar.Text == "/about" then
