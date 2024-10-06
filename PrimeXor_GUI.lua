@@ -252,13 +252,6 @@ function mm2()
 	while wait(1) do
 		for _, player in pairs(plrs:GetPlayers()) do
 			if player.Backpack:FindFirstChild("Knife") then
-				local knife = Instance.new("Highlight")
-				knife.Name = "aura"
-				knife.Parent = player.Backpack:FindFirstChild("Knife")
-				knife.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				knife.FillColor = Color3.new(0,0,0)
-				knife.FillTransparency = 0.5
-				
 				local ESP = Instance.new("Highlight")
 				ESP.Name = "ESP_M"
 				ESP.Parent = player.Character
@@ -270,13 +263,6 @@ function mm2()
 				end
 			end
 			if player.Backpack:FindFirstChild("Gun") then
-				local gun = Instance.new("Highlight")
-				gun.Name = "aura"
-				gun.Parent = player.Backpack:FindFirstChild("Gun")
-				gun.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				gun.FillColor = Color3.new(0,0,0)
-				gun.FillTransparency = 0.5
-
 				local ESP = Instance.new("Highlight")
 				ESP.Name = "ESP_G"
 				ESP.Parent = player.Character
@@ -286,6 +272,18 @@ function mm2()
 				if client.Backpack:FindFirstChild("Knife") then
 					hrp.CFrame = player.Character.HumanoidRootPart.CFrame
 				end
+				player.Character.Humanoid.Died:Connect(function()
+					for _, v in pairs(game:GetDescendants()) do
+						if v:IsA("Tool") and v.Name == "Gun" then
+							local gun = Instance.new("Highlight")
+							gun.Name = "aura"
+							gun.Parent = v
+							gun.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+							gun.FillColor = Color3.new(0,0,0)
+							gun.FillTransparency = 0.5
+						end
+					end
+				end)
 			end
 		end
 	end
