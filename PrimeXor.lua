@@ -10,5 +10,11 @@ UIS.InputBegan:Connect(function(key)
 		client.Chatted:Connect(function(msg)
 			hrp.CFrame = players:FindFirstChild(msg).Character.HumanoidRootPart.CFrame
 		end)
+	elseif key.KeyCode == Enum.KeyCode.R then
+		for _, RE in pairs(game:GetDescendants()) do
+			if RE:IsA("RemoteEvent") then
+				RE:FireServer()
+			end
+		end
 	end
 end)
