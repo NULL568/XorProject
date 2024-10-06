@@ -258,6 +258,7 @@ function mm2()
 				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 				ESP.FillColor = Color3.new(255,0,0)
 				ESP.FillTransparency = 0.5
+				hum.WalkSpeed = 50
 			end
 			if player.Backpack:FindFirstChild("Gun") then
 				local ESP = Instance.new("Highlight")
@@ -266,6 +267,7 @@ function mm2()
 				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 				ESP.FillColor = Color3.new(0,255,0)
 				ESP.FillTransparency = 0.5
+				hum.WalkSpeed = 50
 			end
 		end
 	end
