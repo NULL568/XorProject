@@ -349,10 +349,6 @@ function Help()
 	line10.Parent = Output
 	line10.Visible = true
 
-	line11.Text = "-- /tp [nameOfPlayer] : teleport to a player"
-	line11.Parent = Output
-	line11.Visible = true
-	
 	line12.Text = "-- /about : informations for PrimeXor"
 end
 
@@ -394,21 +390,6 @@ UIS.InputBegan:Connect(function(key)
 		end
 	end
 end)
-
-function TP(plrTarget)
-	if plrs:FindFirstChild(plrTarget) then
-		hrp.CFrame = plrs:FindFirstChild(plrTarget).Character.HumanoidRootPart.CFrame
-		local line1 = Line:Clone()
-		line1.Text = "[ Xor TP ] teleported to "..plrTarget
-		line1.Parent = Output
-		line1.Visible = true
-	else
-		local line2 = Line:Clone()
-		line2.Text = "[ Xor TP ] player not found!"
-		line2.Parent = Output
-		line2.Visible = true
-	end
-end
 
 function about()
 	LoadNotifier()
