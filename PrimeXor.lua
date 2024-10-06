@@ -302,7 +302,6 @@ function mm2()
 end
 
 function ESP_ALL()
-	local limit = 1
 	LoadNotifier("[ Xor Script ESP ] script loaded!")
 	task.wait(5)
 	UnloadNotifier()
@@ -313,20 +312,7 @@ function ESP_ALL()
 		ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 		ESP.FillColor = Color3.new(255, 255, 255)
 		ESP.FillTransparency = 0.5
-		if limit <= 0 then
-			LoadNotifier("[ Xor Script ESP ] script loaded!", "ESP")
-			wait(5)
-			UnloadNotifier("[ Empty ]", "Xor Notifier")
-			local espError = Line:Clone()
-			espError.Text = "[ Xor Info ] ESP is already enabled!"
-			espError.Parent = Output
-			espError.Visible = true
-			print("[ Xor Info ] ESP is already enabled!")
-			limit -= 1
-		end
 	end
-	task.wait(3)
-	ESP_ALL()
 end
 
 function updatePrimeXor()
