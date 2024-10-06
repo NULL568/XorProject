@@ -6,8 +6,8 @@ local plrs = game:GetService("Players")
 local client = plrs.LocalPlayer
 local PGui = client:WaitForChild("PlayerGui")
 local char = client.Character
-local hum = char.Humanoid
-local hrp = char.HumanoidRootPart
+local hum = char:WaitForChild("Humanoid")
+local hrp = char:WaitForChild("HumanoidRootPart")
 
 local PrimeXorUi = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
@@ -37,7 +37,7 @@ local Description_2 = Instance.new("TextBox")
 local UIStroke = Instance.new("UIStroke")
 local UIStroke_2 = Instance.new("UIStroke")
 
-local versionOfPrimeXor = "v2.4"
+local versionOfPrimeXor = "v1.5"
 
 UIStroke.Thickness = 3
 UIStroke.Parent = Main
