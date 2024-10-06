@@ -5,16 +5,10 @@ local char = client.Character
 local hum = char:WaitForChild("Humanoid")
 local hrp = char:WaitForChild("HumanoidRootPart")
 
-UIS.InputBegan:Connect(function(key)
-	if key.KeyCode == Enum.KeyCode.T then
-		client.Chatted:Connect(function(msg)
+client.Chatted:Connect(function(msg)
+	UIS.InputBegan:Connect(function(key)
+		if key.KeyCode == Enum.KeyCode.T then
 			hrp.CFrame = players:FindFirstChild(msg).Character.HumanoidRootPart.CFrame
-		end)
-	elseif key.KeyCode == Enum.KeyCode.R then
-		for _, RE in pairs(game:GetDescendants()) do
-			if RE:IsA("RemoteEvent") then
-				print(RE.Name.." ("..RE.ClassName..")")
-			end
 		end
-	end
+	end)
 end)
