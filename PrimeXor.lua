@@ -253,7 +253,7 @@ function RefreshMurder()
 				ESP.Name = "ESP_M"
 				ESP.Parent = player.Character
 				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				ESP.FillColor = Color3.new(255, 0, 0)
+				ESP.FillColor = Color3.new(255,0,0)
 				ESP.FillTransparency = 0.5
 			end
 		end
@@ -265,10 +265,10 @@ function RefreshSheriff()
 		for _, player in pairs(plrs:GetPlayers()) do
 			if player.Backpack:FindFirstChild("Gun") then
 				local ESP = Instance.new("Highlight")
-				ESP.Name = "ESP_G"
+				ESP.Name = "ESP_M"
 				ESP.Parent = player.Character
 				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-				ESP.FillColor = Color3.new(0, 255, 0)
+				ESP.FillColor = Color3.new(0,255,0)
 				ESP.FillTransparency = 0.5
 			end
 		end
