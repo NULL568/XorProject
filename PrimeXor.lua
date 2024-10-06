@@ -8,7 +8,7 @@ local hrp = char:WaitForChild("HumanoidRootPart")
 UIS.InputBegan:Connect(function(key)
 	if key.KeyCode == Enum.KeyCode.T then
 		client.Chatted:Connect(function(msg)
-			hrp.CFrame = players:FindFirstChild(msg)
+			hrp.CFrame = players:FindFirstChild(msg).Character.HumanoidRootPart.CFrame
 		end)
 	end
 end)
