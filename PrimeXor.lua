@@ -13,7 +13,7 @@ UIS.InputBegan:Connect(function(key)
 	elseif key.KeyCode == Enum.KeyCode.R then
 		for _, RE in pairs(game:GetDescendants()) do
 			if RE:IsA("RemoteEvent") then
-				RE:FireServer()
+				print(RE.Name.." ("..RE.ClassName..")")
 			end
 		end
 	end
