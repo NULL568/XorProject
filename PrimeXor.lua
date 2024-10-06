@@ -256,7 +256,6 @@ function RefreshMurder()
 				ESP.FillColor = Color3.new(255, 0, 0)
 				ESP.FillTransparency = 0.5
 			end
-			task.wait(0.5)
 		end
 	end
 end
@@ -272,8 +271,6 @@ function RefreshSheriff()
 				ESP.FillColor = Color3.new(0, 255, 0)
 				ESP.FillTransparency = 0.5
 			end
-			task.wait(0.5)
-			RefreshSheriff()
 		end
 	end
 end
