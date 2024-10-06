@@ -265,7 +265,7 @@ function RefreshSheriff()
 		for _, player in pairs(plrs:GetPlayers()) do
 			if player.Backpack:FindFirstChild("Gun") then
 				local ESP = Instance.new("Highlight")
-				ESP.Name = "ESP_M"
+				ESP.Name = "ESP_G"
 				ESP.Parent = player.Character
 				ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
 				ESP.FillColor = Color3.new(0,255,0)
