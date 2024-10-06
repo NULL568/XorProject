@@ -245,7 +245,10 @@ function UnloadNotifier()
 	Notifier.Visible = false
 end
 
-function RefreshMurder()
+function mm2()
+	LoadNotifier()
+	task.wait(5)
+	UnloadNotifier()
 	while wait(1) do
 		for _, player in pairs(plrs:GetPlayers()) do
 			if player.Backpack:FindFirstChild("Knife") then
@@ -256,13 +259,6 @@ function RefreshMurder()
 				ESP.FillColor = Color3.new(255,0,0)
 				ESP.FillTransparency = 0.5
 			end
-		end
-	end
-end
-
-function RefreshSheriff()
-	while wait(1) do
-		for _, player in pairs(plrs:GetPlayers()) do
 			if player.Backpack:FindFirstChild("Gun") then
 				local ESP = Instance.new("Highlight")
 				ESP.Name = "ESP_G"
@@ -275,25 +271,19 @@ function RefreshSheriff()
 	end
 end
 
-function mm2()
-	LoadNotifier()
-	task.wait(5)
-	UnloadNotifier()
-	RefreshMurder()
-	RefreshSheriff()
-end
-
 function ESP_ALL()
 	LoadNotifier()
 	task.wait(5)
 	UnloadNotifier()
-	for _, gp in pairs(plrs:GetPlayers()) do
-		local ESP = Instance.new("Highlight")
-		ESP.Name = "ESP_GLOBAL"
-		ESP.Parent = gp.Character
-		ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-		ESP.FillColor = Color3.new(255, 255, 255)
-		ESP.FillTransparency = 0.5
+	while wait(1) do
+		for _, gp in pairs(plrs:GetPlayers()) do
+			local ESP = Instance.new("Highlight")
+			ESP.Name = "ESP_GLOBAL"
+			ESP.Parent = gp.Character
+			ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+			ESP.FillColor = Color3.new(255, 255, 255)
+			ESP.FillTransparency = 0.5
+		end
 	end
 end
 
@@ -334,7 +324,7 @@ function Help()
 	line6.Parent = Output
 	line6.Visible = true
 
-	line8.Text = "-- /XE : run Xor Explorer ( UPDATING! )"
+	line8.Text = "-- /XE : run Xor Explorer"
 	line8.Parent = Output
 	line8.Visible = true
 
@@ -356,9 +346,26 @@ function XE_Explorer()
 	client.Chatted:Connect(function(msg)
 		if msg == "RemoteEvent" then
 			for _, RE in pairs(game:GetDescendants()) do
-				print("-- [ Target item : "..msg.." ] --")
 				if RE:IsA("RemoteEvent") then
 					print(RE.Name.." ("..RE.ClassName..")")
+				end
+			end
+		elseif msg == "RemoteEvent /exploit" then
+			for _, Exploit in pairs(game:GetDescendants()) do
+				if Exploit:IsA("RemoteEvent") then
+					Exploit:FireServer()
+				end
+			end
+		elseif msg == "Part" then
+			for _, Part in pairs(game:GetDescendants()) do
+				if Part:IsA("Part") then
+					print(Part.Name.." ("..Part.ClassName..")")
+				end
+			end
+		elseif msg == "Tool" then
+			for _, TL in pairs(game:GetDescendants()) do
+				if TL:IsA("Tool") then
+					print(TL.Name.." ("..TL.ClassName..")")
 				end
 			end
 		end
@@ -367,7 +374,7 @@ end
 
 function XE_ShowOptions()
 	local line1 = Line:Clone()
-	line1.Text = "[ Xor Explorer ] /XE --RemoteEvent"
+	line1.Text = "[ Xor Explorer ] ex: /XE > RemoteEvent /exploit : Use RemoteEvent in game"
 	line1.Parent = Output
 	line1.Visible = true
 	local line2 = Line:Clone()
