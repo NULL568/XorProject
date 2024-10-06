@@ -374,7 +374,7 @@ end
 
 function XE_ShowOptions()
 	local line1 = Line:Clone()
-	line1.Text = "[ Xor Explorer ] ex: /XE > RemoteEvent /exploit : Use RemoteEvent in game"
+	line1.Text = "[ Xor Explorer ] ex: /XE > Type : RemoteEvent /exploit ( Use RemoteEvent in game )"
 	line1.Parent = Output
 	line1.Visible = true
 	local line2 = Line:Clone()
