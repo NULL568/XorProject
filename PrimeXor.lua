@@ -225,19 +225,6 @@ Line.Visible = false
 
 local splitCmd = string.split(CommandBar.Text, " ")
 
-function loadPrimeXor()
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/NULL568/XorProject/refs/heads/main/PrimeXor.lua"))();
-	task.wait(5)
-	local UpdateXor = PGui:WaitForChild("PrimeXorUi").LineTemplate:Clone()
-	UpdateXor.Text = "[ Xor Update ] Prime Xor is ready!"
-	UpdateXor.Parent = PGui:WaitForChild("PrimeXorUi")
-	UpdateXor.Visible = true
-	local UpdateXor2 = PGui:WaitForChild("PrimeXorUi").LineTemplate:Clone()
-	UpdateXor2.Text = "[ Xor Update ] You can use /help command to see new possibles changes!"
-	UpdateXor2.Parent = PGui:WaitForChild("PrimeXorUi")
-	UpdateXor2.Visible = true
-end
-
 function LoadNotifier(desc, nameNotifier)
 	Notifier.Visible = true
 	Notifier.Transparency = 1
@@ -315,23 +302,6 @@ function ESP_ALL()
 	end
 end
 
-function updatePrimeXor()
-	LoadNotifier("[ Xor System Update ] don't re-execute script on your executor, he will be executed automatically!", "Update")
-	task.wait(5)
-	UnloadNotifier()
-	local UpdateXor = Line:Clone()
-	UpdateXor.Text = "[ Xor Update ] please wait (don't re-execute)"
-	UpdateXor.Parent = Output
-	UpdateXor.Visible = true
-	local UpdateXor2 = Line:Clone()
-	UpdateXor2.Text = "[ Xor Update ] Prime Xor will start in a few seconds!"
-	UpdateXor2.Parent = Output
-	UpdateXor2.Visible = true
-	PGui:FindFirstChild("PrimeXorUi"):Destroy()
-	task.wait(3)
-	loadPrimeXor()
-end
-
 function Help()
 	local line1 = Line:Clone()
 	local line2 = Line:Clone()
@@ -339,7 +309,6 @@ function Help()
 	local line4 = Line:Clone()
 	local line5 = Line:Clone()
 	local line6 = Line:Clone()
-	local line7 = Line:Clone()
 	local line8 = Line:Clone()
 	local line9 = Line:Clone()
 	local line10 = Line:Clone()
@@ -369,10 +338,6 @@ function Help()
 	line6.Text = "-- /esp : see all players in game"
 	line6.Parent = Output
 	line6.Visible = true
-
-	line7.Text = "-- /update : update repository GitHub of PrimeXor"
-	line7.Parent = Output
-	line7.Visible = true
 
 	line8.Text = "-- /XE : run Xor Explorer ( UPDATING! )"
 	line8.Parent = Output
@@ -477,8 +442,6 @@ Execute.MouseButton1Click:Connect(function()
 		mm2()
 	elseif CommandBar.Text == "/esp" then
 		ESP_ALL()
-	elseif CommandBar.Text == "/update" then
-		updatePrimeXor()
 	elseif CommandBar.Text == "/XE --show-options" then
 		XE_ShowOptions()
 	elseif CommandBar.Text == "/discord" then
