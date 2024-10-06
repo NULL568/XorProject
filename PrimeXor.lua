@@ -356,6 +356,7 @@ function XE_Explorer()
 	client.Chatted:Connect(function(msg)
 		if msg == "RemoteEvent" then
 			for _, RE in pairs(game:GetDescendants()) do
+				print("-- [ Target item : "..msg.." ] --")
 				if RE:IsA("RemoteEvent") then
 					print(RE.Name.." ("..RE.ClassName..")")
 				end
