@@ -353,13 +353,15 @@ function XE_Explorer()
 	LoadNotifier()
 	task.wait(5)
 	UnloadNotifier()
-	local box = Instance.new("Highlight")
-	box.Parent = LineTemplate
-	for _, obj in pairs(game:GetDescendants()) do
-		if obj:IsA("RemoteEvent") then
-			print(obj.Name.." ("..obj.ClassName..")")
+	client.Chatted:Connect(function(msg)
+		if msg == "RemoteEvent" then
+			for _, RE in pairs(game:GetDescendants()) do
+				if RE:IsA("RemoteEvent") then
+					print(RE.Name.." ("..RE.ClassName..")")
+				end
+			end
 		end
-	end
+	end)
 end
 
 function XE_ShowOptions()
