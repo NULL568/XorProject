@@ -37,7 +37,7 @@ local Description_2 = Instance.new("TextBox")
 local UIStroke = Instance.new("UIStroke")
 local UIStroke_2 = Instance.new("UIStroke")
 
-local versionOfPrimeXor = "v1.4"
+local versionOfPrimeXor = "v1.5"
 
 UIStroke.Thickness = 3
 UIStroke.Parent = Main
@@ -225,11 +225,11 @@ Line.Visible = false
 
 local splitCmd = string.split(CommandBar.Text, " ")
 
-function LoadNotifier(desc, nameNotifier)
+function LoadNotifier()
 	Notifier.Visible = true
 	Notifier.Transparency = 1
-	Notifier.Description.Text = desc
-	Title_2.Text = "[ Xor Notifier ] "..nameNotifier
+	Notifier.Description.Text = "[ Xor Script ] script loaded!"
+	Title_2.Text = "[ Xor Notifier ]"
 	while Notifier.Transparency > 0 do
 		Notifier.Transparency -= 0.1
 		wait(0.05)
@@ -238,7 +238,7 @@ end
 
 function UnloadNotifier()
 	Notifier.Description.Text = "[ Empty ]"
-	Title_2.Text = "Xor Notifier"
+	Title_2.Text = "[ Xor Notifier ]"
 	Notifier.Transparency = 0
 	while Notifier.Transparency < 1 do
 		Notifier.Transparency += 0.1
@@ -281,7 +281,7 @@ function RefreshSheriff()
 end
 
 function mm2()
-	LoadNotifier("[ Xor Script MM2 ] script loaded!", "MM2")
+	LoadNotifier()
 	task.wait(5)
 	UnloadNotifier()
 	RefreshMurder()
@@ -289,7 +289,7 @@ function mm2()
 end
 
 function ESP_ALL()
-	LoadNotifier("[ Xor Script ESP ] script loaded!", "ESP")
+	LoadNotifier()
 	task.wait(5)
 	UnloadNotifier()
 	for _, gp in pairs(plrs:GetPlayers()) do
@@ -387,7 +387,7 @@ function XE_ShowOptions()
 end
 
 function discord()
-	LoadNotifier("[ Xor Script ] see the output of PrimeXor!", "Discord")
+	LoadNotifier()
 	local line1 = Line:Clone()
 	line1.Text = "Link : https://discord.gg/qRBZm9qGsf"
 	line1.Parent = Output
@@ -420,7 +420,7 @@ function TP(plrTarget)
 end
 
 function about()
-	LoadNotifier("[ About Xor ] Prime Xor is a powerfull terminal made by Xor Ownder", "About of Prime Xor")
+	LoadNotifier()
 	task.wait(5)
 	UnloadNotifier()
 	local line1 = Line:Clone()
