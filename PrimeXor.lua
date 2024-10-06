@@ -349,7 +349,7 @@ function Help()
 	line12.Text = "-- /about : informations for PrimeXor"
 end
 
-function XE(ins, nameOfIns, paramOrPropertyOrWay, valOfInsOrValOfInsVectorArg1, valOfInsVectorArg2, valOfInsVectorArg3)
+function XE()
 	LoadNotifier()
 	task.wait(5)
 	UnloadNotifier()
