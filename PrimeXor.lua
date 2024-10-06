@@ -354,6 +354,7 @@ function XE_Explorer()
 	task.wait(5)
 	UnloadNotifier()
 	local box = Instance.new("Highlight")
+	box.Parent = LineTemplate
 	for _, obj in pairs(game:GetDescendants()) do
 		if obj:IsA("Part") then
 			local boxClone = box:Clone()
