@@ -223,8 +223,6 @@ Line.TextWrapped = true
 Line.TextXAlignment = Enum.TextXAlignment.Left
 Line.Visible = false
 
-local splitCmd = string.split(CommandBar.Text, " ")
-
 function LoadNotifier()
 	Notifier.Visible = true
 	Notifier.Transparency = 1
@@ -359,22 +357,15 @@ function Help()
 end
 
 function XE(ins, nameOfIns, paramOrPropertyOrWay, valOfInsOrValOfInsVectorArg1, valOfInsVectorArg2, valOfInsVectorArg3)
-	LoadNotifier("[ Xor Script XE ] script loaded!", "XE v2.1")
+	LoadNotifier()
 	task.wait(5)
 	UnloadNotifier()
-	local lineForRE = Line:Clone()
-	local line1 = Line:Clone()
-	local line2 = Line:Clone()
-	local line3 = Line:Clone()
-	local line4 = Line:Clone()
-	local line5 = Line:Clone()
-	local line6 = Line:Clone()
-	local line7 = Line:Clone()
-	local line8 = Line:Clone()
-	local line9 = Line:Clone()
-	local line10 = Line:Clone()
-
+	local box = Instance.new("Highlight")
 	for _, obj in pairs(game:GetDescendants()) do
+		if obj:IsA("Part") then
+			local boxClone = box:Clone()
+			boxClone.Parent = obj
+		end
 	end
 end
 
@@ -446,8 +437,6 @@ Execute.MouseButton1Click:Connect(function()
 		XE_ShowOptions()
 	elseif CommandBar.Text == "/discord" then
 		discord()
-	elseif splitCmd[1] == "/tp" then
-		TP(splitCmd[2])
 	elseif CommandBar.Text == "/about" then
 		about()
 	end
