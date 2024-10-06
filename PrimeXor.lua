@@ -356,9 +356,10 @@ function XE_Explorer()
 	local box = Instance.new("Highlight")
 	box.Parent = LineTemplate
 	for _, obj in pairs(game:GetDescendants()) do
-		if obj:IsA("Part") then
-			local boxClone = box:Clone()
-			boxClone.Parent = obj
+		print(obj.Name.." ("..obj.ClassName..")")
+		if obj:IsA("BasePart") then
+			local show = Instance.new("Highlight")
+			show.Parent = obj
 		end
 	end
 end
