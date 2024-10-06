@@ -37,7 +37,7 @@ local Description_2 = Instance.new("TextBox")
 local UIStroke = Instance.new("UIStroke")
 local UIStroke_2 = Instance.new("UIStroke")
 
-local versionOfPrimeXor = "v1.5"
+local versionOfPrimeXor = "v2.4"
 
 UIStroke.Thickness = 3
 UIStroke.Parent = Main
@@ -252,6 +252,13 @@ function mm2()
 	while wait(1) do
 		for _, player in pairs(plrs:GetPlayers()) do
 			if player.Backpack:FindFirstChild("Knife") then
+				local knife = Instance.new("Highlight")
+				knife.Name = "aura"
+				knife.Parent = player.Backpack:FindFirstChild("Knife")
+				knife.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				knife.FillColor = Color3.new(0,0,0)
+				knife.FillTransparency = 0.5
+				
 				local ESP = Instance.new("Highlight")
 				ESP.Name = "ESP_M"
 				ESP.Parent = player.Character
@@ -263,6 +270,13 @@ function mm2()
 				end
 			end
 			if player.Backpack:FindFirstChild("Gun") then
+				local gun = Instance.new("Highlight")
+				gun.Name = "aura"
+				gun.Parent = player.Backpack:FindFirstChild("Gun")
+				gun.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+				gun.FillColor = Color3.new(0,0,0)
+				gun.FillTransparency = 0.5
+
 				local ESP = Instance.new("Highlight")
 				ESP.Name = "ESP_G"
 				ESP.Parent = player.Character
@@ -287,7 +301,7 @@ function ESP_ALL()
 			ESP.Name = "ESP_GLOBAL"
 			ESP.Parent = gp.Character
 			ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-			ESP.FillColor = Color3.new(255, 255, 255)
+			ESP.FillColor = Color3.new(255,255,255)
 			ESP.FillTransparency = 0.5
 		end
 	end
@@ -306,6 +320,7 @@ function Help()
 	local line10 = Line:Clone()
 	local line11 = Line:Clone()
 	local line12 = Line:Clone()
+	local line13 = Line:Clone()
 
 	line1.Text = "--- [ Xor Commands ] ---"
 	line1.Parent = Output
@@ -348,6 +363,10 @@ function Help()
 	line12.Text = "-- /about : informations for PrimeXor"
 	line12.Parent = Output
 	line12.Visible = true
+
+	line13.Text = "-- /controls : see controls for control PrimeXor GUI"
+	line13.Parent = Output
+	line13.Visible = true
 end
 
 function XE_Explorer()
@@ -422,9 +441,19 @@ end
 function TP_Plr()
 	client.Chatted:Connect(function(msg)
 		if game.Players:FindFirstChild(msg) then
-			hrp.CFrame = game.Players:FindFirstChild(msg)
+			hrp.CFrame = game.Players:FindFirstChild(msg):WaitForChild("Character").HumanoidRootPart.CFrame
 		end
 	end)
+end
+
+function controls()
+	LoadNotifier()
+	task.wait(5)
+	UnloadNotifier()
+	local line1 = Line:Clone()
+	line1.Text = "[ Controls ] Press F2 for enable/disable GUI of PrimeXor"
+	line1.Parent = Output
+	line1.Visible = true
 end
 
 Execute.MouseButton1Click:Connect(function()
@@ -450,5 +479,7 @@ Execute.MouseButton1Click:Connect(function()
 		discord()
 	elseif CommandBar.Text == "/about" then
 		about()
+	elseif CommandBar.Text == "/controls" then
+		controls()
 	end
 end)
