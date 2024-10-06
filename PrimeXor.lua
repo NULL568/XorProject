@@ -359,7 +359,6 @@ function XE_Explorer()
 		if obj:IsA("Part") then
 			local boxClone = box:Clone()
 			boxClone.Parent = obj
-			boxClone.Transparency = 0.5
 		end
 	end
 end
