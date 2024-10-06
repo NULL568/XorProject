@@ -304,23 +304,23 @@ function Help()
 	line1.Text = "--- [ Xor Commands ] ---"
 	line1.Parent = Output
 	line1.Visible = true
-	
+
 	line2.Parent = Output
 	line2.Text = "-- /help : show commands list"
 	line2.Visible = true
-	
+
 	line3.Text = "-- /clear : clean output"
 	line3.Parent = Output
 	line3.Visible = true
-	
+
 	line4.Text = "-- /mm2 : run Xor Script for MM2 (Murder Mystery 2)"
 	line4.Parent = Output
 	line4.Visible = true
-	
+
 	line5.Text = "-- /sb : run Xor Script for Slap Battles"
 	line5.Parent = Output
 	line5.Visible = true
-	
+
 	line6.Text = "-- /esp : see all players in game"
 	line6.Parent = Output
 	line6.Visible = true
@@ -340,6 +340,8 @@ function Help()
 	line10.Visible = true
 
 	line12.Text = "-- /about : informations for PrimeXor"
+	line12.Parent = Output
+	line12.Visible = true
 end
 
 function XE_Explorer()
@@ -436,7 +438,7 @@ Execute.MouseButton1Click:Connect(function()
 		XE_Explorer()
 	elseif CommandBar.Text == "/XE --show-options" then
 		XE_ShowOptions()
-	elseif CommandBar.Text = "/tp" then
+	elseif CommandBar.Text == "/tp" then
 		TP_Plr()
 	elseif CommandBar.Text == "/discord" then
 		discord()
