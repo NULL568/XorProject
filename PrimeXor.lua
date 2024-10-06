@@ -349,7 +349,7 @@ function Help()
 	line12.Text = "-- /about : informations for PrimeXor"
 end
 
-function XE()
+function XE_Explorer()
 	LoadNotifier()
 	task.wait(5)
 	UnloadNotifier()
@@ -413,7 +413,7 @@ Execute.MouseButton1Click:Connect(function()
 	elseif CommandBar.Text == "/esp" then
 		ESP_ALL()
 	elseif CommandBar.Text == "/XE" then
-		XE()
+		XE_Explorer()
 	elseif CommandBar.Text == "/XE --show-options" then
 		XE_ShowOptions()
 	elseif CommandBar.Text == "/discord" then
