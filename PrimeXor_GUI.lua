@@ -37,7 +37,7 @@ local Description_2 = Instance.new("TextBox")
 local UIStroke = Instance.new("UIStroke")
 local UIStroke_2 = Instance.new("UIStroke")
 
-local versionOfPrimeXor = "v1.5"
+local versionOfPrimeXor = "v2.4"
 
 UIStroke.Thickness = 3
 UIStroke.Parent = Main
