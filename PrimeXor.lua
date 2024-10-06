@@ -344,6 +344,7 @@ function Help()
 	local line9 = Line:Clone()
 	local line10 = Line:Clone()
 	local line11 = Line:Clone()
+	local line12 = Line:Clone()
 
 	line1.Text = "--- [ Xor Commands ] ---"
 	line1.Parent = Output
@@ -385,9 +386,11 @@ function Help()
 	line10.Parent = Output
 	line10.Visible = true
 
-	line11.text = "-- /tp [nameOfPlayer] : teleport to a player"
+	line11.Text = "-- /tp [nameOfPlayer] : teleport to a player"
 	line11.Parent = Output
 	line11.Visible = true
+	
+	line12.Text = "-- /about : informations for PrimeXor"
 end
 
 function XE(ins, nameOfIns, paramOrPropertyOrWay, valOfInsOrValOfInsVectorArg1, valOfInsVectorArg2, valOfInsVectorArg3)
