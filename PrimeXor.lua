@@ -358,6 +358,7 @@ function XE(ins, nameOfIns, paramOrPropertyOrWay, valOfInsOrValOfInsVectorArg1, 
 		if obj:IsA("Part") then
 			local boxClone = box:Clone()
 			boxClone.Parent = obj
+			boxClone.Transparency = 0.5
 		end
 	end
 end
@@ -411,6 +412,8 @@ Execute.MouseButton1Click:Connect(function()
 		mm2()
 	elseif CommandBar.Text == "/esp" then
 		ESP_ALL()
+	elseif CommandBar.Text == "/XE" then
+		XE()
 	elseif CommandBar.Text == "/XE --show-options" then
 		XE_ShowOptions()
 	elseif CommandBar.Text == "/discord" then
