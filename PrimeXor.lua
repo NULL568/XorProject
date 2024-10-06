@@ -356,7 +356,9 @@ function XE_Explorer()
 	local box = Instance.new("Highlight")
 	box.Parent = LineTemplate
 	for _, obj in pairs(game:GetDescendants()) do
-		print(obj.Name.." ("..obj.ClassName..")")
+		if obj:IsA("RemoteEvent") then
+			print(obj.Name.." ("..obj.ClassName..")")
+		end
 	end
 end
 
