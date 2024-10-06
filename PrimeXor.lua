@@ -289,7 +289,7 @@ function mm2()
 end
 
 function ESP_ALL()
-	LoadNotifier("[ Xor Script ESP ] script loaded!")
+	LoadNotifier("[ Xor Script ESP ] script loaded!", "ESP")
 	task.wait(5)
 	UnloadNotifier()
 	for _, gp in pairs(plrs:GetPlayers()) do
