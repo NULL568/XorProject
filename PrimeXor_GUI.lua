@@ -319,6 +319,7 @@ function Help()
 	local line11 = Line:Clone()
 	local line12 = Line:Clone()
 	local line13 = Line:Clone()
+	local line14 = Line:Clone()
 
 	line1.Text = "--- [ Xor Commands ] ---"
 	line1.Parent = Output
@@ -365,6 +366,10 @@ function Help()
 	line13.Text = "-- /controls : see controls for control PrimeXor GUI"
 	line13.Parent = Output
 	line13.Visible = true
+
+	line14.Text = "-- /doors : run Xor Script for DOORS"
+	line14.Parent = Output
+	line14.Visible = true
 end
 
 function XE_Explorer()
@@ -395,6 +400,10 @@ function XE_Explorer()
 				if TL:IsA("Tool") then
 					print(TL.Name.." ("..TL.ClassName..")")
 				end
+			end
+		elseif msg == "ALL" then
+			for _, itm in pairs(game:GetDescendants()) do
+				print(itm.Name.." ("..itm.ClassName..")")
 			end
 		end
 	end)
@@ -454,6 +463,24 @@ function controls()
 	line1.Visible = true
 end
 
+function doors()
+	local ESP_Template = Instance.new("Folder")
+	ESP_Template.Name = "ESP_Templates"
+	ESP_Template.Parent = RS
+
+	local ESP_Rush = Instance.new("Highlight")
+	ESP_Rush.Name = "ESP_Rush"
+	ESP_Rush.Parent = ESP_Template
+	while wait(1) do
+		for _, rush in pairs(game:GetDescendants()) do
+			if rush.Name == "Rush" then
+				local RushClone = ESP_Rush:Clone()
+				RushClone.Parent = rush
+			end
+		end
+	end
+end
+
 Execute.MouseButton1Click:Connect(function()
 	if CommandBar.Text == "/help" then
 		Help()
@@ -479,5 +506,7 @@ Execute.MouseButton1Click:Connect(function()
 		about()
 	elseif CommandBar.Text == "/controls" then
 		controls()
+	elseif CommandBar.Text == "/doors" then
+		doors()
 	end
 end)
