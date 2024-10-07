@@ -384,9 +384,15 @@ function XE_Explorer()
 				end
 			end
 		elseif msg == "RemoteEvent /exploit" then
+			local alrt = Instance.new("Message", Workspace)
+			alrt.Text = "You have 10 secondes to type the name of RemoteEvent in the Command Bar Terminal!"
+			task.wait(10)
+			alrt:Destroy()
 			for _, Exploit in pairs(game:GetDescendants()) do
 				if Exploit:IsA("RemoteEvent") then
-					Exploit:FireServer()
+					if CommandBar.Text == Exploit.Name then
+						Exploit:FireServer()
+					end
 				end
 			end
 		elseif msg == "Part" then
