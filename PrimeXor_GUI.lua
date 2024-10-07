@@ -37,7 +37,7 @@ local Description_2 = Instance.new("TextBox")
 local UIStroke = Instance.new("UIStroke")
 local UIStroke_2 = Instance.new("UIStroke")
 
-local versionOfPrimeXor = "v2.4"
+local versionOfPrimeXor = "BETA v2.5"
 
 UIStroke.Thickness = 3
 UIStroke.Parent = Main
@@ -382,7 +382,7 @@ function XE_Explorer()
 				if RE:IsA("RemoteEvent") then
 					print(RE.Name.." ("..RE.ClassName..")")
 					UIS.InputBegan:Connect(function(key)
-						if key.KeyCode == Enum.KeyCode.R then
+						if key.KeyCode == Enum.KeyCode.F3 then
 							for _, re in pairs(game:GetDescendants()) do
 								if re.Name == CommandBar.Text then
 									re:FireServer()
