@@ -5,7 +5,7 @@ local SG = game:GetService("StarterGui")
 local plrs = game:GetService("Players")
 local client = plrs.LocalPlayer
 local PGui = client:WaitForChild("PlayerGui")
-local char = client.Character
+local char = client.Character or client.CharacterAdded:Wait()
 local hum = char:WaitForChild("Humanoid")
 local hrp = char:WaitForChild("HumanoidRootPart")
 
@@ -37,7 +37,7 @@ local Description_2 = Instance.new("TextBox")
 local UIStroke = Instance.new("UIStroke")
 local UIStroke_2 = Instance.new("UIStroke")
 
-local versionOfPrimeXor = "v4"
+local versionOfPrimeXor = "Ultra V5"
 
 UIStroke.Thickness = 3
 UIStroke.Parent = Main
@@ -223,25 +223,21 @@ Line.TextWrapped = true
 Line.TextXAlignment = Enum.TextXAlignment.Left
 Line.Visible = false
 
+local TweenService = game:GetService("TweenService")
+
 function LoadNotifier()
     Notifier.Visible = true
     Notifier.Transparency = 1
     Notifier.Description.Text = "[ Xor Script ] script loaded!"
     Title_2.Text = "[ Xor Notifier ]"
-    while Notifier.Transparency > 0 do
-        Notifier.Transparency -= 0.1
-        wait(0.05)
-    end
+    TweenService:Create(Notifier, TweenInfo.new(1), {Transparency = 0}):Play()
 end
 
 function UnloadNotifier()
     Notifier.Description.Text = "[ Empty ]"
     Title_2.Text = "[ Xor Notifier ]"
-    Notifier.Transparency = 0
-    while Notifier.Transparency < 1 do
-        Notifier.Transparency += 0.1
-        wait(0.05)
-    end
+    TweenService:Create(Notifier, TweenInfo.new(1), {Transparency = 1}):Play()
+    task.wait(1)
     Notifier.Visible = false
 end
         
@@ -249,7 +245,7 @@ function mm2()
     LoadNotifier()
     task.wait(5)
     UnloadNotifier()
-    while wait(1) do
+    while task.wait(1) do
         for _, player in pairs(plrs:GetPlayers()) do
             if player.Backpack:FindFirstChild("Knife") then
                 local ESP = Instance.new("Highlight")
@@ -293,7 +289,7 @@ function ESP_ALL()
     LoadNotifier()
     task.wait(5)
     UnloadNotifier()
-    while wait(1) do
+    while task.wait(1) do
         for _, gp in pairs(plrs:GetPlayers()) do
             local ESP = Instance.new("Highlight")
             ESP.Name = "ESP_GLOBAL"
@@ -446,7 +442,7 @@ function doors()
     local ESP_Rush = Instance.new("Highlight")
     ESP_Rush.Name = "ESP_Rush"
     ESP_Rush.Parent = ESP_Template
-    while wait(1) do
+    while task.wait(1) do
         for _, rush in pairs(game:GetDescendants()) do
             if rush.Name == "Rush" then
                 local RushClone = ESP_Rush:Clone()
