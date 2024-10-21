@@ -377,37 +377,20 @@
             task.wait(5)
             UnloadNotifier()
             client.Chatted:Connect(function(msg)
-                if msg == "RemoteEvent" then
-                    for _, RE in pairs(game:GetDescendants()) do
-                        if RE:IsA("RemoteEvent") then
-                            print(RE.Name.." ("..RE.ClassName..")")
-                            UIS.InputBegan:Connect(function(key)
-                                if key.KeyCode == Enum.KeyCode.F3 then
-                                    for _, re in pairs(game:GetDescendants()) do
-                                        if re.Name == CommandBar.Text then
-                                            re:FireServer()
-                                            print(CommandBar.Text.." found!")
-                                        end
-                                    end
-                                end
-                            end)
-                        end
+                local splitArg = string.split(msg, " ")
+                local target = splitArg[1]
+                local param = splitArg[2]
+                for _, re in pairs(game:GetDescendants()) do
+                    if re:IsA("RemoteEvent") then
+                        local item = Line:Clone
+                        item.Text = re.Name.." ("..re.ClassName..")"
+                        item.Parent = Output
+                        item.Visible = true
                     end
-                elseif msg == "Part" then
-                    for _, Part in pairs(game:GetDescendants()) do
-                        if Part:IsA("Part") then
-                            print(Part.Name.." ("..Part.ClassName..")")
-                        end
-                    end
-                elseif msg == "Tool" then
-                    for _, TL in pairs(game:GetDescendants()) do
-                        if TL:IsA("Tool") then
-                            print(TL.Name.." ("..TL.ClassName..")")
-                        end
-                    end
-                elseif msg == "ALL" then
-                    for _, itm in pairs(game:GetDescendants()) do
-                        print(itm.Name.." ("..itm.ClassName..")")
+                end
+                for _, itm in pairs(game:GetDescendants()) do
+                    if itm.Name == target then
+                        itm:FireServer(param)
                     end
                 end
             end)
