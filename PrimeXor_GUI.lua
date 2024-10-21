@@ -52,6 +52,7 @@ PrimeXorUi.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Holding.Name = "Holding"
 Holding.Parent = PrimeXorUi
+Holding.Value = false
 
 Main.Name = "Main"
 Main.Parent = PrimeXorUi
@@ -60,15 +61,14 @@ Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.0152718388, 0, 0.554020107, 0)
 Main.Size = UDim2.new(0.399511307, 0, 0.424623102, 0)
-Main.MouseEnter:Connect(function()
-    mouse.Button1Down:Connect(function()
-        Holding.Value = true
-    end)
-end)
-Main.MouseLeave:Connect(function()
-    mouse.Button1Up:Connect(function()
-        Holding.Value = false
-    end)
+UIS.InputBegan:Connect(function(key)
+    if key.KeyCode == Enum.KeyCode.F3 then
+        if Holding.Value == true then
+            Holding.Value = false
+        elseif Holding.Value == false then
+            Holding.Value = true
+        end
+    end
 end)
 mouse.Move:Connect(function()
     if Holding.Value == true then
@@ -449,9 +449,15 @@ function controls()
     task.wait(5)
     UnloadNotifier()
     local line1 = Line:Clone()
+    local line2 = Line:Clone()
+
     line1.Text = "[ Controls ] Press F2 for enable/disable GUI of PrimeXor"
     line1.Parent = Output
     line1.Visible = true
+
+    line2.Text = "[ Controls ] Press F3 for enable/disable the movement of GUI"
+    line2.Parent = Output
+    line2.Visible = true
 end
 
 function doors()
