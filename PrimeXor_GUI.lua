@@ -4,6 +4,7 @@ local RS = game:GetService("ReplicatedStorage")
 local SG = game:GetService("StarterGui")
 local plrs = game:GetService("Players")
 local client = plrs.LocalPlayer
+local mouse = client:GetMouse()
 local PGui = client:WaitForChild("PlayerGui")
 local char = client.Character or client.CharacterAdded:Wait()
 local hum = char:WaitForChild("Humanoid")
@@ -36,6 +37,7 @@ local Title_3 = Instance.new("TextLabel")
 local Description_2 = Instance.new("TextBox")
 local UIStroke = Instance.new("UIStroke")
 local UIStroke_2 = Instance.new("UIStroke")
+local Holding = Instance.new("BoolValue")
 
 local versionOfPrimeXor = "Ultra V5"
 
@@ -48,6 +50,9 @@ PrimeXorUi.Name = "PrimeXorUi"
 PrimeXorUi.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 PrimeXorUi.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
+Holding.Name = "Holding"
+Holding.Parent = PrimeXorUi
+
 Main.Name = "Main"
 Main.Parent = PrimeXorUi
 Main.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
@@ -55,6 +60,21 @@ Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.0152718388, 0, 0.554020107, 0)
 Main.Size = UDim2.new(0.399511307, 0, 0.424623102, 0)
+Main.MouseEnter:Connect(function()
+    mouse.Button1Down:Connect(function()
+        Holding.Value = true
+    end)
+end)
+Main.MouseLeave:Connect(function()
+    mouse.Button1Up:Connect(function()
+        Holding.Value = false
+    end)
+end)
+mouse.Move:Connect(function()
+    if Holding.Value == true then
+        Main.Position = UDim2.new(0,mouse.X,0,mouse.Y)
+    end
+end)
 
 UICorner.CornerRadius = UDim.new(0, 15)
 UICorner.Parent = Main
