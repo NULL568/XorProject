@@ -406,6 +406,7 @@ function XE_Explorer()
             end
         end
     end)
+    return 0
 end
 
 function discord()
