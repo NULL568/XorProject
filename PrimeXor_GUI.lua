@@ -303,6 +303,7 @@ function mm2()
             end
         end
     end
+    return 0
 end
         
 function ESP_ALL()
@@ -319,6 +320,7 @@ function ESP_ALL()
             ESP.FillTransparency = 0.5
         end
     end
+    return 0
 end
         
 function Help()
@@ -386,6 +388,7 @@ function Help()
     line14.Text = "-- /doors : run Xor Script for DOORS"
     line14.Parent = Output
     line14.Visible = true
+    return 0
 end
 
 function XE_Explorer()
@@ -415,6 +418,7 @@ function discord()
     line1.Text = "Link : https://discord.gg/qRBZm9qGsf"
     line1.Parent = Output
     line1.Visible = true
+    return 0
 end
 
 UIS.InputBegan:Connect(function(key)
@@ -435,6 +439,7 @@ function about()
     line1.Text = "[ About Xor ] Prime Xor is updated from GitHub by Xor Owner"
     line1.Parent = Output
     line1.Visible = true
+    return 0
 end
 
 function TP_Plr()
@@ -443,6 +448,7 @@ function TP_Plr()
             hrp.CFrame = game.Players:FindFirstChild(msg):WaitForChild("Character").HumanoidRootPart.CFrame
         end
     end)
+    return 0
 end
 
 function controls()
@@ -459,6 +465,7 @@ function controls()
     line2.Text = "[ Controls ] Press F3 for enable/disable the movement of GUI"
     line2.Parent = Output
     line2.Visible = true
+    return 0
 end
 
 function doors()
@@ -477,10 +484,12 @@ function doors()
             end
         end
     end
+    return 0
 end
 
 function fleave()
     client:Kick("[ Prime Xor ] You have been kicked successfully!")
+    return 0
 end
 
 Execute.MouseButton1Click:Connect(function()
