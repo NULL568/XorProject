@@ -351,7 +351,7 @@ function Help()
     line8.Parent = Output
     line8.Visible = true
 
-    line9.Text = "-- /XE --show-options : show options for Xor Explorer"
+    line9.Text = "-- /fleave : Force leave immediatly"
     line9.Parent = Output
     line9.Visible = true
 
@@ -485,5 +485,7 @@ Execute.MouseButton1Click:Connect(function()
         controls()
     elseif CommandBar.Text == "/doors" then
         doors()
+    elseif CommandBar.Text == "/fleave" then
+        fleave()
     end
 end)
