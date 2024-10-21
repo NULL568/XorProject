@@ -377,9 +377,6 @@ function XE_Explorer()
     task.wait(5)
     UnloadNotifier()
     client.Chatted:Connect(function(msg)
-        local splitArg = string.split(msg, " ")
-        local target = splitArg[1]
-        local param = splitArg[2]
         for _, re in pairs(game:GetDescendants()) do
             if re:IsA("RemoteEvent") then
                 local item = Line:Clone()
@@ -389,8 +386,8 @@ function XE_Explorer()
             end
         end
         for _, itm in pairs(game:GetDescendants()) do
-            if itm.Name == target then
-                itm:FireServer(param)
+            if itm.Name == msg then
+                itm:FireServer()
             end
         end
     end)
