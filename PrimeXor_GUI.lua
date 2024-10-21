@@ -376,6 +376,8 @@ function XE_Explorer()
     LoadNotifier()
     task.wait(5)
     UnloadNotifier()
+    print("--- [ RemoteEvent ] ---")
+    print(" ")
     for _, re in pairs(game:GetDescendants()) do
         if re:IsA("RemoteEvent") then
             print(re.Name.." ("..re.ClassName..")")
