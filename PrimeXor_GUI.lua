@@ -376,15 +376,15 @@ function XE_Explorer()
     LoadNotifier()
     task.wait(5)
     UnloadNotifier()
-    client.Chatted:Connect(function(msg)
-        for _, re in pairs(game:GetDescendants()) do
-            if re:IsA("RemoteEvent") then
-                local item = Line:Clone()
-                item.Text = re.Name.." ("..re.ClassName..")"
-                item.Parent = Output
-                item.Visible = true
-            end
+    for _, re in pairs(game:GetDescendants()) do
+        if re:IsA("RemoteEvent") then
+            local item = Line:Clone()
+            item.Text = re.Name.." ("..re.ClassName..")"
+            item.Parent = Output
+            item.Visible = true
         end
+    end
+    client.Chatted:Connect(function(msg)
         for _, itm in pairs(game:GetDescendants()) do
             if itm.Name == msg then
                 itm:FireServer()
