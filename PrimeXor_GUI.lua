@@ -456,6 +456,10 @@ function doors()
     end
 end
 
+function fleave()
+    client:Kick("[ Prime Xor ] You have been kicked successfully!")
+end
+
 Execute.MouseButton1Click:Connect(function()
     if CommandBar.Text == "/help" then
         Help()
