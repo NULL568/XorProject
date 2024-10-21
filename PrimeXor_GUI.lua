@@ -378,10 +378,7 @@ function XE_Explorer()
     UnloadNotifier()
     for _, re in pairs(game:GetDescendants()) do
         if re:IsA("RemoteEvent") then
-            local item = Line:Clone()
-            item.Text = re.Name.." ("..re.ClassName..")"
-            item.Parent = Output
-            item.Visible = true
+            print(re.Name.." ("..re.ClassName..")")
         end
     end
     client.Chatted:Connect(function(msg)
