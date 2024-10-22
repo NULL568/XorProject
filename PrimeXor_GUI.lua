@@ -312,12 +312,14 @@ function ESP_ALL()
     UnloadNotifier()
     while task.wait(1) do
         for _, gp in pairs(plrs:GetPlayers()) do
-            local ESP = Instance.new("Highlight")
-            ESP.Name = "ESP_GLOBAL"
-            ESP.Parent = gp.Character
-            ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-            ESP.FillColor = Color3.new(255,255,255)
-            ESP.FillTransparency = 0.5
+            if gp.Name ~= client.Name then
+                local ESP = Instance.new("Highlight")
+                ESP.Name = "ESP_GLOBAL"
+                ESP.Parent = gp.Character
+                ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+                ESP.FillColor = Color3.new(255,255,255)
+                ESP.FillTransparency = 0.5
+            end
         end
     end
     return 0
