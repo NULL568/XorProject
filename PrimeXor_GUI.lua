@@ -320,7 +320,16 @@ function ESP_ALL()
                 ESP.Parent = gp.Character
                 ESP.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
                 ESP.FillColor = Color3.new(255,255,255)
-                ESP.FillTransparency = 0.5
+                ESP.FillTransparency = 1
+                ESP.OutlineColor = Color3.new(255,255,255)
+                local overHeadUi = Instance.new("BillboardGui")
+                overHeadUi.Parent = gp.Character:WaitForChild("Head")
+                overHeadUi.Size = Vector2.new(1,1)
+                local HeadGui = Instance.new("TextLabel")
+                HeadGui.Parent = overHeadUi
+                HeadGui.Size = Vector2.new(1,1)
+                HeadGui.Text = gp.DisplayName.." ("..gp.Name..")"
+                HeadGui.TextScaled = true
             end
         end
     end
