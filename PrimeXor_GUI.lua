@@ -250,14 +250,14 @@ function LoadNotifier()
     Notifier.Transparency = 1
     Notifier.Description.Text = "[ Xor Script ] script loaded!"
     Title_2.Text = "[ Xor Notifier ]"
-    TweenService:Create(Notifier, TweenInfo.new(1), Enum.EasingStyle.Sine, Enum.EasingDirection.In, {Transparency = 0}):Play()
+    TweenService:Create(Notifier, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.In, {Transparency = 0}):Play()
     TweenService:Create(UIStroke_2, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.In, {Transparency = 0})):Play()
 end
 
 function UnloadNotifier()
     Notifier.Description.Text = "[ Empty ]"
     Title_2.Text = "[ Xor Notifier ]"
-    TweenService:Create(Notifier, TweenInfo.new(1), Enum.EasingStyle.Sine, Enum.EasingDirection.In, {Transparency = 1}):Play()
+    TweenService:Create(Notifier, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.In, {Transparency = 1}):Play()
     TweenService:Create(UIStroke_2, TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.In, {Transparency = 1})):Play()
     task.wait(1)
     Notifier.Visible = false
