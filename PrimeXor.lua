@@ -475,7 +475,7 @@ Execute.MouseButton1Click:Connect(function()
 		Help()
 	elseif CommandBar.Text == "/clear" then
 		for _, line in pairs(Output:GetChildren()) do
-			if line:IsA("TextLabel") then
+			if line:IsA("TextLabel") thenn
 				line:Destroy()
 			end
 		end
