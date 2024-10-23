@@ -226,7 +226,7 @@ Description.Interactable = false
 
 LineTemplate.Name = "LineTemplate"
 LineTemplate.Parent = PrimeXorUi
-        
+     
 Line.Name = "Line"
 Line.Parent = LineTemplate
 Line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
