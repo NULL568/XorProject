@@ -318,11 +318,6 @@ function ESP_ALL()
                 ESP.FillColor = Color3.new(255,255,255)
                 ESP.FillTransparency = 1
                 ESP.OutlineColor = Color3.new(255,255,255)
-                local HeadGui = Instance.new("TextLabel")
-                HeadGui.Parent = overHeadUi
-                HeadGui.Size = Vector2.new(1,1)
-                HeadGui.Text = gp.DisplayName.." ("..gp.Name..")"
-                HeadGui.TextScaled = true
             end
         end
     end
