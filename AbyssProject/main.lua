@@ -118,6 +118,9 @@ UIS.InputBegan:Connect(function(key)
 
             local enabledRH = false
             local enabledLH = false
+            
+            local enabledRL = false
+            local enabledLL = false
             for _, RH in pairs(char:GetChildren()) do
                   if RH:IsA("MeshPart") then
                         if not char.RightHand:FindFirstChild("auraRH") then
@@ -146,6 +149,25 @@ UIS.InputBegan:Connect(function(key)
                                     auraLH.Parent = char.LeftHand
                                     task.wait(1)
                                     enabledLH = false
+                              end
+                        end
+                        if not char.RightLeg:FindFirstChild("auraRL") then
+                              if enabledRL == false then
+                                    enabledRL = true
+                                    local auraRL = Instance.new("Highlight")
+                                    auraRL.Name = "auraRL"
+                                    auraRL.FillColor = Color3.new(255,0,0)
+                                    auraRL.FillTransparency = 0
+                                    auraRL.OutlineColor = Color3.new(255,0,0)
+                                    auraRL.OutlineTransparency = 0
+                                    auraRL.Parent = char.RightLeg
+                                    task.wait(1)
+                                    enabledRL = false
+                              end
+                        end
+                        if not char.LeftLeg:FindFirstChild("auraLL") then
+                              if enabledLL == false then
+                                    enabledLL = true
                               end
                         end
                   end
