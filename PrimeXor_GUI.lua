@@ -226,7 +226,7 @@ Description.Interactable = false
 
 LineTemplate.Name = "LineTemplate"
 LineTemplate.Parent = PrimeXorUi
-     
+
 Line.Name = "Line"
 Line.Parent = LineTemplate
 Line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -258,7 +258,7 @@ function UnloadNotifier()
     task.wait(1)
     Notifier.Visible = false
 end
-        
+
 function mm2()
     LoadNotifier()
     task.wait(5)
@@ -303,7 +303,7 @@ function mm2()
     end
     return 0
 end
-        
+
 function ESP_ALL()
     LoadNotifier()
     task.wait(5)
