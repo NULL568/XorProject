@@ -405,7 +405,7 @@ function XE_Explorer()
     end
     client.Chatted:Connect(function(msg)
         for _, itm in pairs(game:GetDescendants()) do
-            if itm.Name == msg then
+            if itm:IsA("RemoteEvent") and itm.Name == msg then
                 itm:FireServer()
             end
         end
