@@ -226,7 +226,7 @@ Description.Interactable = false
 
 LineTemplate.Name = "LineTemplate"
 LineTemplate.Parent = PrimeXorUi
-     
+
 Line.Name = "Line"
 Line.Parent = LineTemplate
 Line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -258,7 +258,7 @@ function UnloadNotifier()
     task.wait(1)
     Notifier.Visible = false
 end
-        
+
 function mm2()
     LoadNotifier()
     task.wait(5)
@@ -303,7 +303,7 @@ function mm2()
     end
     return 0
 end
-        
+
 function ESP_ALL()
     LoadNotifier()
     task.wait(5)
@@ -318,14 +318,6 @@ function ESP_ALL()
                 ESP.FillColor = Color3.new(255,255,255)
                 ESP.FillTransparency = 1
                 ESP.OutlineColor = Color3.new(255,255,255)
-                local overHeadUi = Instance.new("BillboardGui")
-                overHeadUi.Parent = gp.Character:WaitForChild("Head")
-                overHeadUi.Size = Vector2.new(1,1)
-                local HeadGui = Instance.new("TextLabel")
-                HeadGui.Parent = overHeadUi
-                HeadGui.Size = Vector2.new(1,1)
-                HeadGui.Text = gp.DisplayName.." ("..gp.Name..")"
-                HeadGui.TextScaled = true
             end
         end
     end
@@ -413,7 +405,7 @@ function XE_Explorer()
     end
     client.Chatted:Connect(function(msg)
         for _, itm in pairs(game:GetDescendants()) do
-            if itm.Name == msg then
+            if itm:IsA("RemoteEvent") and itm.Name == msg then
                 itm:FireServer()
             end
         end
