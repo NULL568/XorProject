@@ -152,6 +152,7 @@ Execute.MouseButton1Click:Connect(function()
 					ClonerAura.Parent = plr.Character
 				end
 			end
+			task.wait(0.1)
 		end
 	elseif Prompt.Text == "/unESP" then
 		enabled = false
