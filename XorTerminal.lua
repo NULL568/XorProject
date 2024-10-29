@@ -20,6 +20,8 @@ local UiStroke = Instance.new("UIStroke")
 UiStroke.Parent = Terminal
 UiStroke.Thickness = 2
 
+local canMove = false
+
 XorUI.Name = "XorUI"
 XorUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 XorUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
