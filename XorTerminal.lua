@@ -1,5 +1,6 @@
 local UIS = game:GetService("UserInputService")
 local client = game.Players.LocalPlayer
+local mouse = client:GetMouse()
 local char = client.Character
 local hum = char:WaitForChild("Humanoid")
 local hrp = char:WaitForChild("HumanoidRootPart")
@@ -14,6 +15,10 @@ local Prompt = Instance.new("TextBox")
 local UICorner_3 = Instance.new("UICorner")
 local Execute = Instance.new("TextButton")
 local UICorner_4 = Instance.new("UICorner")
+
+local UiStroke = Instance.new("UIStroke")
+UiStroke.Parent = Terminal
+UiStroke.Thickness = 2
 
 XorUI.Name = "XorUI"
 XorUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
