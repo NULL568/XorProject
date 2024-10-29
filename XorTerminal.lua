@@ -1,4 +1,5 @@
 local UIS = game:GetService("UserInputService")
+local Plrs = game.Players
 local client = game.Players.LocalPlayer
 local mouse = client:GetMouse()
 local char = client.Character
@@ -93,6 +94,8 @@ Execute.TextScaled = true
 Execute.TextSize = 14.000
 Execute.TextWrapped = true
 
+local enabled = false
+
 UICorner_4.Parent = Execute
 
 UIS.InputBegan:Connect(function(key)
@@ -132,31 +135,30 @@ Execute.MouseButton1Click:Connect(function()
 				print(re.Name.." ("..re.ClassName..")")
 			end
 		end
-	elseif Prompt.Text == "/invisible" then
-		for _, v in pairs(client.Character:GetChildren()) do
-			if v:IsA("MeshPart") then
-				v.Transparency = 1
-			end
-			if v:IsA("Accessory") then
-				v.Handle.Transparency = 1
-			end
-			if v:IsA("Part") then
-				v.Transparency = 1
-			end
-		end
-	elseif Prompt.Text == "/uninvisible" then
-		for _, v in pairs(client.Character:GetChildren()) do
-			if v:IsA("MeshPart") then
-				v.Transparency = 0
-			end
-			if v:IsA("Accessory") then
-				v.Handle.Transparency = 0
-			end
-			if v:IsA("Part") then
-				v.Transparency = 0
+	elseif Prompt.Text == "/ESP" then
+		enabled = true
+		local Aura = Instance.new("Highlight")
+		Aura.Name = "ESP_Aura"
+		Aura.FillColor = Color3.new(0.015686, 0.952941, 0.015686)
+		Aura.FillTransparency = 0.5
+		Aura.OutlineColor = Color3.new(1, 1, 1)
+		Aura.OutlineTransparency = 0
+		Aura.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+		Aura.Parent = game.ReplicatedStorage
+		while enabled do
+			for _, plr in pairs(Plrs:GetPlayers()) do
+				if plr.Name ~= client.Name then
+					local ClonerAura = Aura:Clone()
+					ClonerAura.Parent = plr.Character
+				end
 			end
 		end
-	elseif Prompt.Text == "/IY" then
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))();
+	elseif Prompt.Text == "/unESP" then
+		enabled = false
+		for _, plr in pairs(Plrs:GetPlayers()) do
+			if plr.Character:FindFirstChild("ESP_Aura") then
+				plr.Character.ESP_Aura:Destroy()
+			end
+		end
 	end
 end)
