@@ -156,5 +156,7 @@ Execute.MouseButton1Click:Connect(function()
 				v.Transparency = 0
 			end
 		end
+	elseif Prompt.Text == "/IY" then
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))();
 	end
 end)
