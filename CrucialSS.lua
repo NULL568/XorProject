@@ -1,8 +1,3 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
 local CrucialUI = Instance.new("ScreenGui")
 local MainGUI = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -25,7 +20,7 @@ local UICorner_8 = Instance.new("UICorner")
 local OutputLines = Instance.new("Folder")
 local Line = Instance.new("TextLabel")
 
---Properties:
+-- Properties:
 
 CrucialUI.Name = "CrucialUI"
 CrucialUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -177,58 +172,64 @@ Line.TextXAlignment = Enum.TextXAlignment.Left
 
 -- Scripts:
 
-local function ZASQ_fake_script() -- OutputGUI.SecurityLine 
-	local script = Instance.new('LocalScript', OutputGUI)
+local function ZASQ_fake_script()
+    local script = Instance.new('LocalScript', OutputGUI)
 
-	local OutputGUI = script.Parent
-	local Line = script.Parent.Parent.Parent.OutputLines.Line
-	local len = 0
-	
-	while wait(1) do
-		for _, ln in pairs(OutputGUI:GetChildren()) do
-			if len > 21 then
-				ln:Destroy()
-			end
-			len += 1
-		end
-		task.wait(0.1)
-		len = 0
-	end
+    local OutputGUI = script.Parent
+    local Line = script.Parent.Parent.Parent.OutputLines.Line
+    local maxLines = 21
+
+    while true do
+        wait(1)
+        local children = OutputGUI:GetChildren()
+        for i = #children, maxLines + 1, -1 do
+            children[i]:Destroy()
+        end
+    end
 end
 coroutine.wrap(ZASQ_fake_script)()
-local function PYES_fake_script() -- Exploit.LocalScript 
-	local script = Instance.new('LocalScript', Exploit)
 
-	local prompt = script.Parent.Parent.command
-	
-	script.Parent.MouseButton1Click:Connect(function()
-		script.Parent.ExploitEvent:FireServer(prompt.Text)
-	end)
+local function PYES_fake_script()
+    local script = Instance.new('LocalScript', Exploit)
+
+    local prompt = script.Parent.Parent.command
+
+    script.Parent.MouseButton1Click:Connect(function()
+        script.Parent.ExploitEvent:FireServer(prompt.Text)
+    end)
 end
 coroutine.wrap(PYES_fake_script)()
-local function OGLRURZ_fake_script() -- Exploit.Script 
-	local script = Instance.new('Script', Exploit)
 
-	script.Parent.ExploitEvent.OnServerEvent:Connect(function(plr, prompt)
-		if prompt == "/tp all me" then
-			for _, v in pairs(game.Players:GetPlayers()) do
-				v.Character.HumanoidRootPart.CFrame = plr.Character.HumanoidRootPart.CFrame
-				print(v.Name.." : teleported")
-			end
-		end
-	end)
+local function OGLRURZ_fake_script()
+    local script = Instance.new('Script', Exploit)
+
+    local ExploitEvent = Instance.new("RemoteEvent", script.Parent)
+    ExploitEvent.Name = "ExploitEvent"
+
+    ExploitEvent.OnServerEvent:Connect(function(plr, prompt)
+        if prompt == "/tp all me" then
+            for _, v in pairs(game.Players:GetPlayers()) do
+                if v.Character and v.Character:FindFirstChild("HumanoidRootPart") and
+                   plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+                    v.Character.HumanoidRootPart.CFrame = plr.Character.HumanoidRootPart.CFrame
+                    print(v.Name .. " : teleported")
+                end
+            end
+        end
+    end)
 end
 coroutine.wrap(OGLRURZ_fake_script)()
-local function KFBMK_fake_script() -- MainGUI.LocalScript 
-	local script = Instance.new('LocalScript', MainGUI)
 
-	local UIS = game:GetService("UserInputService")
-	local gui = script.Parent
-	
-	UIS.InputBegan:Connect(function(key)
-		if key.KeyCode == Enum.KeyCode.F2 then
-			gui.Visible = not gui.Visible
-		end
-	end)
+local function KFBMK_fake_script()
+    local script = Instance.new('LocalScript', MainGUI)
+
+    local UIS = game:GetService("UserInputService")
+    local gui = script.Parent
+
+    UIS.InputBegan:Connect(function(input, gameProcessedEvent)
+        if not gameProcessedEvent and input.KeyCode == Enum.KeyCode.F2 then
+            gui.Visible = not gui.Visible
+        end
+    end)
 end
 coroutine.wrap(KFBMK_fake_script)()
